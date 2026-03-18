@@ -55,6 +55,15 @@ const URL_ALLOWLIST = [
   "aws.amazon.com",
   "learn.microsoft.com",
   "developer.nvidia.com",
+  "nvidia.com",
+  "perplexity.ai",
+  "mistral.ai",
+  "cohere.com",
+  "stability.ai",
+  "replicate.com",
+  "together.ai",
+  "groq.com",
+  "fireworks.ai",
 ];
 
 const DUPLICATE_THRESHOLD = 0.8;
