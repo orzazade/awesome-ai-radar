@@ -76,22 +76,30 @@ jobs:
               });
             }
 
-            // Post duplicate warnings
-            for (const dup of output.duplicates || []) {
-              core.warning(dup.message, {
-                file: dup.file,
-                title: 'Possible Duplicate Entry'
-              });
-            }
-
-            // Handle URL allowlist violations
-            if (output.urlViolations && output.urlViolations.length > 0) {
-              // Add "needs-review" label
+            // Post duplicate warnings + label
+            if (output.duplicates && output.duplicates.length > 0) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                labels: ['needs-review']
+                labels: ['needs-review', 'possible-duplicate']
+              });
+              for (const dup of output.duplicates) {
+                core.warning(dup.message, {
+                  file: dup.file,
+                  title: 'Possible Duplicate Entry'
+                });
+              }
+            }
+
+            // Handle URL allowlist violations
+            if (output.urlViolations && output.urlViolations.length > 0) {
+              // Add specific labels
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['needs-review', 'url-not-allowlisted']
               });
 
               const violationList = output.urlViolations
@@ -106,8 +114,14 @@ jobs:
               });
             }
 
-            // Fail the check if there are schema errors
+            // Fail the check + label if there are schema errors
             if (output.schemaErrors && output.schemaErrors.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['needs-review', 'schema-error']
+              });
               core.setFailed(`${output.schemaErrors.length} schema validation error(s) found.`);
             }
 
