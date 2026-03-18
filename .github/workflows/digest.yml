@@ -1,8 +1,8 @@
-name: Weekly Digest Generation
+name: Daily Digest Generation
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Sunday midnight UTC
+    - cron: "0 6 * * *" # Every day at 6 AM UTC
   workflow_dispatch:
 
 permissions:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   generate-digest:
-    name: Generate Weekly Digest
+    name: Generate Daily Digest
     runs-on: ubuntu-latest
 
     steps:
