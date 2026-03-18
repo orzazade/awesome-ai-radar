@@ -10,7 +10,7 @@ contributed_by: "@orzazade via ai-radar skill"
 
 ## What happened
 
-At its Ask 2026 developer conference, Perplexity unveiled "Personal Computer" — software that runs continuously on a dedicated Mac mini, giving Perplexity's cloud-based AI agent persistent access to local files, apps, and sessions. Unlike OpenClaw's fully local approach, the AI processing runs on Perplexity's servers while the local agent handles file access. All sensitive actions require user approval, every session generates an audit trail, and there's an emergency kill switch. Pricing is approximately $200/month for Max subscribers.
+At its Ask 2026 developer conference, Perplexity unveiled "Personal Computer" — software that runs continuously on a dedicated Mac mini, giving Perplexity's cloud-based AI agent persistent access to local files, apps, and sessions. The AI processing runs on Perplexity's servers while the local agent handles file access. All sensitive actions require user approval, every session generates an audit trail, and there's an emergency kill switch. Pricing is approximately $200/month for Max subscribers.
 
 ## Why it matters
 

@@ -14,7 +14,7 @@ Zhipu AI (z.ai) released GLM-5, a 744B MoE model with 40B active parameters, und
 
 ## Why it matters
 
-This is a triple first: the first frontier-class model trained entirely without NVIDIA GPUs, the first to ship at this performance tier under MIT license, and the first to prove the Huawei Ascend stack can produce globally competitive results. The geopolitical implications are significant — the AI compute monopoly assumption just broke. For developers, the MIT license means unrestricted commercial use, modification, and self-hosting of a model that genuinely competes with proprietary offerings. At $1.00/$3.20 per million tokens via API, it's also the best value play at frontier performance.
+This is reportedly a triple first: the first frontier-class model trained entirely without NVIDIA GPUs, the first to ship at this performance tier under MIT license, and the first to prove the Huawei Ascend stack can produce globally competitive results. The geopolitical implications are significant — the AI compute monopoly assumption just broke. For developers, the MIT license means unrestricted commercial use, modification, and self-hosting of a model that genuinely competes with proprietary offerings. At $1.00/$3.20 per million tokens via API, it also appears to offer strong value at frontier performance.
 
 ## Who should pay attention
 

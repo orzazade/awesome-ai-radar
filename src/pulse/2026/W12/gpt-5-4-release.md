@@ -4,7 +4,7 @@ date: 2026-03-05
 category: "Model Release"
 signal: "incremental"
 affects: ["api", "chatgpt", "enterprise"]
-source: "https://releasebot.io/updates/openai"
+source: "https://openai.com/index/gpt-5-4/"
 contributed_by: "@orzazade via ai-radar skill"
 ---
 
