@@ -1,0 +1,123 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="entry-full">
+  <header class="entry-header">
+    <a href="/" class="back-link">&larr; Back to Radar</a>
+    <h1>{{ title }}</h1>
+    <div class="entry-meta">
+      <span class="signal-badge signal-{{ signal }}">{{ signal | signalLabel }}</span>
+      <time datetime="{{ date | dateFormat }}">{{ date | dateReadable }}</time>
+      {% if category %}
+        <span class="tag">{{ category }}</span>
+      {% endif %}
+    </div>
+    {% if affects %}
+      <div class="entry-affects">
+        {% for tag in affects %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="entry-content">
+    {{ content | safe }}
+  </div>
+
+  <footer class="entry-footer">
+    {% if source %}
+      <div class="entry-source">
+        <strong>Source:</strong> <a href="{{ source }}" target="_blank" rel="noopener">{{ source }}</a>
+      </div>
+    {% endif %}
+    {% if contributed_by %}
+      <div class="entry-contributor">
+        <strong>Contributed by:</strong> {{ contributed_by }}
+      </div>
+    {% endif %}
+  </footer>
+</article>
+
+<style>
+  .entry-full {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .entry-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .entry-header h1 {
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+  }
+
+  .entry-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .entry-affects {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .entry-content {
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .entry-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+  }
+
+  .entry-content p {
+    margin-bottom: 1.25rem;
+  }
+
+  .entry-footer {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .entry-source a {
+    word-break: break-all;
+  }
+
+  @media (max-width: 640px) {
+    .entry-header h1 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

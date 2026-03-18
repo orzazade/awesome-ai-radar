@@ -1,0 +1,58 @@
+name: Weekly Digest Generation
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Sunday midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-digest:
+    name: Generate Weekly Digest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate weekly digest
+        run: node scripts/generate-digest.js
+
+      - name: Generate RSS feeds
+        run: |
+          if [ -f scripts/generate-feeds.js ]; then
+            node scripts/generate-feeds.js
+          else
+            echo "No feed generator found, skipping RSS generation"
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          YEAR=$(date -u +%Y)
+          WEEK=$(date -u +%V)
+          WEEK_LABEL="${YEAR}-W${WEEK}"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "chore: generate weekly digest for ${WEEK_LABEL}"
+          git push

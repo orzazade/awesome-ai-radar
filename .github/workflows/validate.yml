@@ -1,0 +1,123 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  validate:
+    name: Validate Entries
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate entries
+        uses: actions/github-script@v7
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const fs = require('fs');
+            const path = require('path');
+
+            // Get changed .md files in src/pulse/
+            const diffOutput = execSync(
+              `git diff --name-only --diff-filter=AM origin/${process.env.BASE_REF}...HEAD -- 'src/pulse/**/*.md'`,
+              { encoding: 'utf-8' }
+            ).trim();
+
+            if (!diffOutput) {
+              core.info('No new/modified pulse entries found.');
+              return;
+            }
+
+            const changedFiles = diffOutput.split('\n').filter(f => f && !f.endsWith('digest.md'));
+            core.info(`Found ${changedFiles.length} changed entry files`);
+
+            // Run the validation script
+            let result;
+            try {
+              result = execSync(
+                `node scripts/validate-entries.js ${changedFiles.join(' ')}`,
+                { encoding: 'utf-8' }
+              );
+            } catch (e) {
+              // Script exits 1 on schema errors but still outputs JSON to stdout
+              result = e.stdout;
+            }
+
+            const output = JSON.parse(result);
+
+            // Post schema errors as annotations
+            for (const error of output.schemaErrors || []) {
+              core.error(error.message, {
+                file: error.file,
+                title: 'Schema Validation Error'
+              });
+            }
+
+            // Post duplicate warnings
+            for (const dup of output.duplicates || []) {
+              core.warning(dup.message, {
+                file: dup.file,
+                title: 'Possible Duplicate Entry'
+              });
+            }
+
+            // Handle URL allowlist violations
+            if (output.urlViolations && output.urlViolations.length > 0) {
+              // Add "needs-review" label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['needs-review']
+              });
+
+              const violationList = output.urlViolations
+                .map(v => `- **${v.file}**: \`${v.domain}\` (source: ${v.url})`)
+                .join('\n');
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `Source URL domain not in allowlist — flagged for manual review.\n\n${violationList}\n\nAllowed domains are listed in \`scripts/validate-entries.js\`.`
+              });
+            }
+
+            // Fail the check if there are schema errors
+            if (output.schemaErrors && output.schemaErrors.length > 0) {
+              core.setFailed(`${output.schemaErrors.length} schema validation error(s) found.`);
+            }
+
+            // Summary
+            const summary = [
+              `### Validation Results`,
+              `- **Files checked:** ${changedFiles.length}`,
+              `- **Schema errors:** ${(output.schemaErrors || []).length}`,
+              `- **Possible duplicates:** ${(output.duplicates || []).length}`,
+              `- **URL allowlist violations:** ${(output.urlViolations || []).length}`
+            ].join('\n');
+
+            await core.summary.addRaw(summary).write();

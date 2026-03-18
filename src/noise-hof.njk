@@ -1,0 +1,85 @@
+---
+layout: layouts/base.njk
+title: "Noise Hall of Fame"
+permalink: /noise/
+---
+
+<h1>Noise Hall of Fame</h1>
+<p class="page-subtitle">The best explanations of why hyped things don't matter.</p>
+
+{% if collections.noise | length %}
+  {% for entry in collections.noise %}
+    <article class="noise-card">
+      <div class="entry-meta">
+        <span class="signal-badge signal-noise">Noise</span>
+        <time datetime="{{ entry.data.date | dateFormat }}">{{ entry.data.date | dateReadable }}</time>
+        {% if entry.data.category %}
+          <span class="tag">{{ entry.data.category }}</span>
+        {% endif %}
+      </div>
+      <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+      {% if entry.templateContent %}
+        <div class="noise-explanation">
+          {{ entry.templateContent | safe }}
+        </div>
+      {% endif %}
+      {% if entry.data.source %}
+        <a href="{{ entry.data.source }}" class="source-link" target="_blank" rel="noopener">View Source &rarr;</a>
+      {% endif %}
+    </article>
+  {% endfor %}
+{% else %}
+  <div class="empty-state">
+    <p>No noise entries yet. Sometimes everything is signal!</p>
+  </div>
+{% endif %}
+
+<style>
+  .page-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .noise-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--bg-secondary);
+    transition: border-color 0.2s ease;
+  }
+
+  .noise-card:hover {
+    border-color: var(--signal-noise);
+  }
+
+  .noise-card h3 {
+    margin: 0.75rem 0 1rem;
+  }
+
+  .noise-explanation {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .noise-explanation h2 {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-top: 1rem;
+  }
+
+  .source-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+</style>

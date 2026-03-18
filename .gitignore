@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# 11ty output
+_site/
+
+# Cache
+.cache/
+
+# Pagefind
+_pagefind/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Planning (local-only)
+.planning/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="digest-full">
+  <a href="/" class="back-link">&larr; Back to Radar</a>
+
+  <div class="digest-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+<style>
+  .digest-full {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .digest-content {
+    line-height: 1.8;
+  }
+
+  .digest-content h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .digest-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .digest-content h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .digest-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+  }
+
+  .digest-content th,
+  .digest-content td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .digest-content th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--bg-secondary);
+  }
+
+  .digest-content p {
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>

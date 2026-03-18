@@ -1,0 +1,36 @@
+---
+permalink: /feeds/rss.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.url }}/feeds/rss.xml" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.url }}/" rel="alternate" type="text/html"/>
+  <updated>{% if collections.pulse | length %}{{ collections.pulse[0].data.date | dateFormat }}T00:00:00Z{% else %}2026-01-01T00:00:00Z{% endif %}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>{{ site.author.name }}</name>
+    <uri>{{ site.author.url }}</uri>
+  </author>
+  {% for entry in collections.pulse | head(20) %}
+  <entry>
+    <title>{{ entry.data.title | escape }}</title>
+    <link href="{{ site.url }}{{ entry.url }}" rel="alternate" type="text/html"/>
+    <id>{{ site.url }}{{ entry.url }}</id>
+    <published>{{ entry.data.date | dateFormat }}T00:00:00Z</published>
+    <updated>{{ entry.data.date | dateFormat }}T00:00:00Z</updated>
+    {% if entry.data.category %}
+    <category term="{{ entry.data.category | escape }}"/>
+    {% endif %}
+    {% if entry.data.contributed_by %}
+    <author>
+      <name>{{ entry.data.contributed_by | escape }}</name>
+    </author>
+    {% endif %}
+    <content type="html">{{ entry.templateContent | escape }}</content>
+    <summary>{{ entry.data.signal | signalLabel | escape }} — {{ entry.data.category | escape }}</summary>
+  </entry>
+  {% endfor %}
+</feed>

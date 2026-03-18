@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="{{ site.language | default('en') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ description | default(site.description) }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{{ description | default(site.description) }}">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feeds/rss.xml">
+
+  <!-- Fonts: JetBrains Mono for headings, Inter for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Dark-first: Radar Operations aesthetic */
+    :root {
+      --bg: #0a0f1a;
+      --bg-secondary: #111827;
+      --bg-elevated: #1a2332;
+      --text: #e5e7eb;
+      --text-muted: #6b7280;
+      --accent: #60a5fa;
+      --accent-hover: #93c5fd;
+      --border: #1f2937;
+      --code-bg: #1a2332;
+      --signal-game-changer: #ef4444;
+      --signal-notable: #f59e0b;
+      --signal-incremental: #22c55e;
+      --signal-noise: #6b7280;
+      --max-width: 960px;
+      --radius: 8px;
+      --glow: 0 0 20px rgba(96, 165, 250, 0.1);
+      color-scheme: dark;
+    }
+
+    /* Light theme */
+    [data-theme="light"] {
+      --bg: #fafafa;
+      --bg-secondary: #ffffff;
+      --bg-elevated: #f3f4f6;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border: #e5e7eb;
+      --code-bg: #f3f4f6;
+      --glow: 0 0 20px rgba(37, 99, 235, 0.05);
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #fafafa;
+        --bg-secondary: #ffffff;
+        --bg-elevated: #f3f4f6;
+        --text: #1f2937;
+        --text-muted: #6b7280;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --border: #e5e7eb;
+        --code-bg: #f3f4f6;
+        --glow: 0 0 20px rgba(37, 99, 235, 0.05);
+        color-scheme: light;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header / Navigation */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .site-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .site-title:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Main content */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2rem; letter-spacing: -0.03em; }
+    h2 { font-size: 1.5rem; letter-spacing: -0.02em; }
+    h3 { font-size: 1.25rem; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.35em 0.6em;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Signal badges */
+    .signal-badge {
+      display: inline-block;
+      padding: 0.15em 0.6em;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .signal-game-changer { background: var(--signal-game-changer); color: #fff; }
+    .signal-notable { background: var(--signal-notable); color: #1a1a2e; }
+    .signal-incremental { background: var(--signal-incremental); color: #fff; }
+    .signal-noise { background: var(--signal-noise); color: #1a1a2e; }
+
+    /* Category tags */
+    .tag {
+      display: inline-block;
+      padding: 0.1em 0.5em;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+    }
+
+    /* Entry cards */
+    .entry-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      background: var(--bg-secondary);
+      transition: border-color 0.2s ease;
+    }
+
+    .entry-card:hover {
+      border-color: var(--accent);
+    }
+
+    .entry-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--text-muted);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 { font-size: 1.5rem; }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="site-title">{{ site.title }}</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/search/">Search</a>
+        <a href="/leaderboard/">Leaderboard</a>
+        <a href="/noise/">Noise Hall of Fame</a>
+        <a href="/feeds/rss.xml">RSS</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>
+      Powered by the community. Built with <a href="https://claude.com/claude-code">Claude Code</a>.
+      <br>
+      <a href="{{ site.repo }}">GitHub</a> &middot;
+      <a href="/feeds/rss.xml">RSS Feed</a> &middot;
+      <a href="{{ site.repo }}/blob/main/CONTRIBUTING.md">Contribute</a>
+    </p>
+  </footer>
+  <script>
+    // Theme toggle with localStorage persistence
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+      updateIcon();
+    })();
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const isDark = !current
+        ? window.matchMedia('(prefers-color-scheme: light)').matches ? false : true
+        : current === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon();
+    }
+
+    function updateIcon() {
+      const el = document.getElementById('theme-icon');
+      if (!el) return;
+      const html = document.documentElement;
+      const theme = html.getAttribute('data-theme');
+      const isDark = !theme
+        ? !window.matchMedia('(prefers-color-scheme: light)').matches
+        : theme === 'dark';
+      el.textContent = isDark ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

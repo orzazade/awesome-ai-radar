@@ -1,0 +1,164 @@
+---
+layout: layouts/base.njk
+title: "Top Contributors"
+permalink: /leaderboard/
+---
+
+<h1>Top Contributors</h1>
+<p class="page-subtitle">The people powering the radar.</p>
+
+{% if contributors | length %}
+  <div class="leaderboard-table-wrap">
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Contributor</th>
+          <th>Entries</th>
+          <th>Top Signal</th>
+          <th>Badge</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in contributors | sort(true, false, "entries") %}
+          <tr>
+            <td class="rank">{{ loop.index }}</td>
+            <td class="contributor">{{ c.username }}</td>
+            <td class="entries">{{ c.entries }}</td>
+            <td class="top-signal">
+              {% if c.signals["game-changer"] > 0 %}
+                <span class="signal-badge signal-game-changer">Game Changer</span>
+              {% elif c.signals.notable > 0 %}
+                <span class="signal-badge signal-notable">Notable</span>
+              {% elif c.signals.incremental > 0 %}
+                <span class="signal-badge signal-incremental">Incremental</span>
+              {% else %}
+                <span class="signal-badge signal-noise">Noise</span>
+              {% endif %}
+            </td>
+            <td class="badge-cell">
+              {% if c.signals["game-changer"] >= 3 %}
+                <span class="contributor-badge badge-researcher">Top Researcher</span>
+              {% elif c.entries >= 10 %}
+                <span class="contributor-badge badge-master">Radar Master</span>
+              {% else %}
+                <span class="contributor-badge">Contributor</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="badge-legend">
+    <h3>Badge Guide</h3>
+    <ul>
+      <li><span class="contributor-badge badge-master">Radar Master</span> Most entries this month</li>
+      <li><span class="contributor-badge badge-researcher">Top Researcher</span> Most game-changer entries</li>
+      <li><span class="contributor-badge badge-founder">Founder</span> Project founder</li>
+    </ul>
+  </div>
+{% else %}
+  <div class="empty-state">
+    <p>Be the first contributor! Run <code>/ai-radar contribute</code> to get started.</p>
+  </div>
+{% endif %}
+
+<style>
+  .page-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .leaderboard-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .leaderboard-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    background: var(--bg-secondary);
+  }
+
+  .leaderboard-table tbody tr:hover {
+    background: var(--bg-secondary);
+  }
+
+  .rank {
+    font-weight: 700;
+    color: var(--accent);
+    width: 3rem;
+  }
+
+  .contributor {
+    font-weight: 600;
+  }
+
+  .contributor-badge {
+    display: inline-block;
+    padding: 0.15em 0.6em;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .badge-founder { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+  .badge-master { background: var(--signal-game-changer); color: #fff; border-color: var(--signal-game-changer); }
+  .badge-researcher { background: var(--signal-notable); color: #1a1a2e; border-color: var(--signal-notable); }
+
+  .badge-legend {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .badge-legend h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .badge-legend ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .badge-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+</style>

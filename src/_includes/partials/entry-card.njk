@@ -1,0 +1,18 @@
+<article class="entry-card">
+  <div class="entry-meta">
+    <span class="signal-badge signal-{{ entry.data.signal }}">{{ entry.data.signal | signalLabel }}</span>
+    <time datetime="{{ entry.data.date | dateFormat }}">{{ entry.data.date | dateReadable }}</time>
+    <span class="tag">{{ entry.data.category }}</span>
+  </div>
+  <h4><a href="{{ entry.url }}">{{ entry.data.title }}</a></h4>
+  {% if entry.data.affects %}
+    <div class="entry-affects">
+      {% for tag in entry.data.affects %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if entry.templateContent %}
+    <p class="entry-excerpt">{{ entry.templateContent | striptags | truncate(200) }}</p>
+  {% endif %}
+</article>

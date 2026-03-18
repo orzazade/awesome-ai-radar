@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: "Search the Radar"
+---
+
+<h1>Search the Radar</h1>
+<p class="search-subtitle">Find entries by keyword, category, signal level, or technology.</p>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+
+<div id="search"></div>
+
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      showEmptyFilters: false,
+      excerptLength: 25,
+      highlightParam: "highlight",
+      resetStyles: false
+    });
+  });
+</script>
+
+<style>
+  h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .search-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  #search {
+    margin: 1rem 0;
+  }
+
+  /* Override Pagefind styles to match site theme */
+  :root {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--bg);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-tag: var(--bg-secondary);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: var(--radius);
+    --pagefind-ui-font: inherit;
+  }
+</style>
