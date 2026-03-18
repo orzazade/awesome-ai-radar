@@ -1,100 +1,218 @@
-# awesome-ai-radar
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Radar-ef4444?style=for-the-badge&logo=target&logoColor=white" alt="AI Radar" />
+  <img src="https://img.shields.io/github/stars/orzazade/awesome-ai-radar?style=for-the-badge&color=f59e0b" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/orzazade/awesome-ai-radar?style=for-the-badge&color=22c55e" alt="Forks" />
+  <img src="https://img.shields.io/github/license/orzazade/awesome-ai-radar?style=for-the-badge&color=6b7280" alt="License" />
+  <img src="https://img.shields.io/badge/PRs-welcome-22c55e?style=for-the-badge" alt="PRs Welcome" />
+</p>
 
-**Track what matters. Ignore the noise. Powered by a swarm of Claude agents.**
+<h1 align="center">awesome-ai-radar</h1>
+
+<p align="center">
+  <strong>Track what matters. Ignore the noise.</strong><br>
+  <em>Community-powered AI trend intelligence, updated weekly by a distributed swarm of Claude agents.</em>
+</p>
+
+<p align="center">
+  <a href="https://orzazade.github.io/awesome-ai-radar">Live Radar</a> &middot;
+  <a href="#quick-start">Quick Start</a> &middot;
+  <a href="CONTRIBUTING.md">Contribute</a> &middot;
+  <a href="https://orzazade.github.io/awesome-ai-radar/feeds/rss.xml">RSS Feed</a>
+</p>
 
 ---
 
-Most "awesome lists" are graveyards. This one updates itself weekly.
+## The Problem
 
-**awesome-ai-radar** is a community-powered AI trend tracker built on a simple loop: distributed research, shared intelligence, published radar. Every week, contributors run a Claude Code skill that researches the latest AI developments, rates their signal strength, and submits entries via PR. The result is a curated, opinionated radar — not a link dump.
+Every day: new models, new tools, new frameworks, new hype. You scroll Twitter, skim newsletters, check HN — and still feel behind. The problem isn't access to information. It's **signal vs. noise**.
+
+**awesome-ai-radar** solves this with a simple idea: **the community IS the compute.**
+
+Every contributor runs a Claude Code skill locally (zero cost), researches AI developments, rates their significance honestly, and opens a PR. GitHub Actions validates, aggregates, and publishes a weekly radar. The result: a curated, opinionated intelligence feed — not a link dump.
 
 ## Quick Start
 
-**Just want to read?** Browse the radar at **[orzazade.github.io/awesome-ai-radar](https://orzazade.github.io/awesome-ai-radar)**
+### Just want to read?
 
-**Have Claude Code?** Install the skill and get a briefing:
+**[orzazade.github.io/awesome-ai-radar](https://orzazade.github.io/awesome-ai-radar)** — browse the radar, search entries, subscribe via RSS.
+
+### Have Claude Code? Get a personalized briefing:
 
 ```bash
-# Install the skill (one-time)
-claude skill install orzazade/awesome-ai-radar
-
-# Get this week's AI briefing
+# Get this week's AI briefing, personalized to YOUR stack
 /ai-radar briefing
 ```
 
-**Want to contribute?** The skill does the heavy lifting:
+The skill reads your `CLAUDE.md` and dependency files, then tells you what happened in AI that matters to **your** projects specifically.
+
+### Want to contribute?
 
 ```bash
-# Research + draft entries + open a PR — all in one command
+# Research + draft entries + open a PR — one command
 /ai-radar contribute
 ```
 
-Or [submit a manual PR](#contributing) if you prefer.
+Or [submit a manual PR](CONTRIBUTING.md) — no Claude Code required.
+
+### Deep dive on a topic?
+
+```bash
+# "What happened with MCP servers this month?"
+/ai-radar catch-up MCP servers
+```
 
 ## This Week's Radar
 
 <!-- AUTO-UPDATED BY GITHUB ACTIONS — DO NOT EDIT -->
 <!-- RADAR_STATS_START -->
-_Radar stats will appear here after the first publish cycle._
+_Radar stats will appear here after the first weekly digest cycle._
 <!-- RADAR_STATS_END -->
 
 ## How It Works
 
 ```
-  You (locally)              GitHub                   Site
-  ┌──────────┐          ┌──────────────┐        ┌──────────────┐
-  │ Research  │  ──PR──▶ │  Contribute  │ ──CI──▶│   Publish    │
-  │          │          │              │        │              │
-  │ Claude   │          │ Review +     │        │ 11ty builds  │
-  │ skill    │          │ merge        │        │ radar viz    │
-  │ runs     │          │              │        │ Pagefind     │
-  │ locally  │          │              │        │ search       │
-  └──────────┘          └──────────────┘        └──────────────┘
+                        awesome-ai-radar
+
+  RESEARCH               CONTRIBUTE              PUBLISH
+  ────────               ──────────              ───────
+
+  ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
+  │  You run     │       │  GitHub     │       │  Site gets   │
+  │  /ai-radar   │──PR──>│  validates  │──CI──>│  rebuilt     │
+  │  locally     │       │  + merges   │       │  weekly      │
+  └─────────────┘       └─────────────┘       └─────────────┘
+        │                      │                      │
+   Scans HN, Reddit,    Schema check,          11ty + Pagefind
+   GitHub, arxiv,        dedup detection,       Radar viz
+   AI company blogs      URL allowlist          RSS feeds
+        │                      │                      │
+   Rates signal:         Community review       GitHub Pages
+   game-changer →        ensures quality        (free, forever)
+   notable →
+   incremental →
+   noise
 ```
 
-1. **Research** — You run the Claude Code skill. It scans AI news, papers, releases, and community chatter. Everything stays on your machine.
-2. **Contribute** — The skill drafts entries, you review them, and it opens a PR to this repo. Quality over quantity.
-3. **Publish** — GitHub Actions validates entries, builds the 11ty site, and deploys to GitHub Pages. The radar updates weekly.
+**Zero hosting cost. Zero API cost. Zero auth.** Just GitHub + Claude Code.
 
 ## Signal Levels
 
-Every entry gets an honest signal rating:
+Every entry gets an honest signal rating. Most things are incremental. That's fine. The value is in honestly identifying the few that aren't.
 
-| Signal | Emoji | Meaning | Frequency |
-|--------|-------|---------|-----------|
-| **Game-changer** | :red_circle: | Shifts what's possible. You need to know this today. | ~1-2/month |
-| **Notable** | :yellow_circle: | Meaningful development. Worth tracking. | ~3-5/week |
-| **Incremental** | :green_circle: | Expected progress. Good but not surprising. | Most things |
-| **Noise** | :white_circle: | Overhyped, misleading, or irrelevant. Explicitly called out. | As needed |
+| Signal | Meaning | How often |
+|--------|---------|-----------|
+| :red_circle: **Game-changer** | Shifts what's possible. You need to know this today. | ~1-2/month |
+| :yellow_circle: **Notable** | Meaningful development. Worth tracking. | ~3-5/week |
+| :green_circle: **Incremental** | Expected progress. Good but not surprising. | Most things |
+| :white_circle: **Noise** | Overhyped or misleading. Explicitly debunked so you can move on. | As needed |
 
-Most things are incremental. That's fine. The value is in honestly identifying the few that aren't.
+> Calling out noise is as valuable as surfacing signal. "This thing everyone is tweeting about? It's noise. Here's why. Move on."
+
+## The `/ai-radar` Skill
+
+Three modes, all running locally on your machine:
+
+| Mode | Command | What it does |
+|------|---------|-------------|
+| **Briefing** | `/ai-radar` | Personalized AI news digest based on your stack. Reads your CLAUDE.md + deps. |
+| **Contribute** | `/ai-radar contribute` | Researches trends, formats entries, opens a PR to this repo. You review before submit. |
+| **Catch-up** | `/ai-radar catch-up [topic]` | 30-day deep dive on any AI topic. Timeline + current state + what to watch. |
+
+The skill is installed globally — works in any project directory. Each briefing is personalized because it reads your project's actual dependencies.
+
+## Entry Format
+
+Every entry follows a structured format with frontmatter metadata and markdown content:
+
+```markdown
+---
+title: "Descriptive title of what happened"
+date: 2026-03-18
+category: "Model Release"    # Model Release | Tool | Framework | Paradigm | Infrastructure | Research
+signal: "notable"            # game-changer | notable | incremental | noise
+affects: ["python", "api"]   # Stack tags this affects
+source: "https://..."        # Primary source URL (must be verifiable)
+contributed_by: "@username via ai-radar skill"
+---
+
+## What happened
+One paragraph. Factual. No hype.
+
+## Why it matters
+One paragraph. Not what it IS, but why you should CARE.
+
+## Who should pay attention
+Specific developer profiles this affects.
+```
 
 ## Contributing
 
+We want **quality over quantity**. 5 great entries beat 50 mediocre ones.
+
+| Method | Effort | Best for |
+|--------|--------|----------|
+| `/ai-radar contribute` | Easiest | Claude Code users. The skill does the research, you review. |
+| Manual PR | Medium | Anyone. Fork, add entries to `src/pulse/YYYY/WXX/`, submit PR. |
+| GitHub Issue | Lowest | "Hey, you missed X" — flag something for others to write up. |
+
+**Quality bar:**
+- Every source URL must be real and accessible
+- Signal ratings must be honest (most things are incremental or noise)
+- "Why it matters" must explain significance, not just restate facts
+- No self-promotion, no spam, no affiliate links
+
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full guide.
 
-The short version:
-- Run `/ai-radar contribute` for the guided experience
-- Or fork, add entries to `src/pulse/YYYY/WXX/`, and open a PR
-- We want 5 great entries per week, not 50 mediocre ones
-- Be honest with signal ratings — calling something "game-changer" when it's incremental hurts everyone
+## Features
+
+- :dart: **Interactive radar visualization** — ThoughtWorks-style rings + blips on the landing page
+- :mag: **Full-text search** — Pagefind-powered, works offline
+- :trophy: **Contributor leaderboard** — Top researchers recognized with badges
+- :scroll: **Noise Hall of Fame** — Best "why this is noise" explanations, curated
+- :bar_chart: **This Week in Numbers** — At-a-glance stats on each weekly digest
+- :satellite: **RSS feeds** — Monolithic feed + per-stack feeds (subscribe to only what matters to you)
+- :new_moon: **Dark-first design** — Radar Operations aesthetic. Light mode toggle available.
+- :lock: **URL allowlist** — Contributor links validated against known-good domains
 
 ## Tech Stack
 
-| Component | Tool |
-|-----------|------|
-| Static site | [11ty](https://www.11ty.dev/) |
+| Layer | Technology |
+|-------|-----------|
+| Site generator | [11ty (Eleventy)](https://www.11ty.dev/) |
 | Search | [Pagefind](https://pagefind.app/) |
-| Radar visualization | [ThoughtWorks Radar](https://www.thoughtworks.com/radar) viz |
-| CI/CD | GitHub Actions |
-| Contribution engine | Claude Code skill |
-| Schema validation | JSON Schema + GitHub Actions |
-| Hosting | GitHub Pages |
+| Radar visualization | Custom SVG (ThoughtWorks-style) |
+| CI/CD | GitHub Actions (validate, digest, deploy) |
+| Contribution engine | Claude Code skill (`/ai-radar`) |
+| Schema validation | JSON Schema + [ajv](https://ajv.js.org/) |
+| Hosting | GitHub Pages (free) |
+
+## Forking for Your Domain
+
+The architecture is a **pattern, not just a product**. Fork this repo to create radars for any fast-moving space:
+
+```bash
+gh repo fork orzazade/awesome-ai-radar --clone
+# Rename, update categories in schema/entry.schema.json,
+# customize the skill, and you have awesome-web-radar,
+# awesome-security-radar, awesome-devops-radar...
+```
+
+## Roadmap
+
+- [ ] Email digest via GitHub Actions + Resend
+- [ ] SessionStart hook for morning AI briefing
+- [ ] Per-stack sub-radars (Python ML, TypeScript, DevOps)
+- [ ] API endpoint (radar.json is already the de facto API)
+- [ ] Mobile PWA with offline support
 
 ## License
 
-[MIT](LICENSE) — Orkhan Rzazade, 2026.
+[MIT](LICENSE) — use it, fork it, build on it.
 
 ---
 
-Built by [@orzazade](https://github.com/orzazade). Powered by Claude Code.
+<p align="center">
+  Built by <a href="https://github.com/orzazade">@orzazade</a> &middot;
+  Powered by <a href="https://claude.com/claude-code">Claude Code</a> &middot;
+  Star this repo if it saves you time :star:
+</p>
