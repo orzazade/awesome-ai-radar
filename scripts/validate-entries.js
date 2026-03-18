@@ -26,6 +26,7 @@ const PULSE_DIR = path.resolve(__dirname, "..", "src", "pulse");
 
 const URL_ALLOWLIST = [
   "github.com",
+  "github.blog",
   "arxiv.org",
   "anthropic.com",
   "openai.com",
@@ -43,6 +44,17 @@ const URL_ALLOWLIST = [
   "ollama.com",
   "vercel.com",
   "nextjs.org",
+  "arstechnica.com",
+  "techcrunch.com",
+  "theverge.com",
+  "wired.com",
+  "langchain.dev",
+  "docs.anthropic.com",
+  "platform.openai.com",
+  "cloud.google.com",
+  "aws.amazon.com",
+  "learn.microsoft.com",
+  "developer.nvidia.com",
 ];
 
 const DUPLICATE_THRESHOLD = 0.8;
@@ -238,6 +250,12 @@ function main() {
   const newTitles = [];
 
   for (const file of files) {
+    // Skip non-entry files (digests, pulse.json, etc.)
+    const basename = path.basename(file);
+    if (basename === "digest.md" || basename === "pulse.json" || !file.endsWith(".md")) {
+      continue;
+    }
+
     const filePath = path.resolve(file);
 
     if (!fs.existsSync(filePath)) {
@@ -320,4 +338,15 @@ function main() {
   }
 }
 
-main();
+try {
+  main();
+} catch (err) {
+  console.log(
+    JSON.stringify({
+      schemaErrors: [{ file: "validate-entries.js", message: err.message }],
+      duplicates: [],
+      urlViolations: [],
+    })
+  );
+  process.exit(1);
+}

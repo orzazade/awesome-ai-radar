@@ -1,7 +1,7 @@
 ---
 title: "LangChain Releases v1.0 After Two Years of Breaking Changes"
 date: 2026-03-16
-category: "Framework Update"
+category: "Framework"
 signal: "notable"
 affects: ["agents", "rag", "open-source", "devtools"]
 source: "https://blog.langchain.dev"

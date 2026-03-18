@@ -1,7 +1,7 @@
 ---
 title: "OpenAI Cuts GPT-5 Turbo Pricing by 40%"
 date: 2026-03-15
-category: "Industry Shift"
+category: "Infrastructure"
 signal: "incremental"
 affects: ["api", "enterprise", "infrastructure"]
 source: "https://openai.com/blog"

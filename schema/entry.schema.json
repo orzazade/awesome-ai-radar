@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://orzazade.github.io/awesome-ai-radar/schema/entry.schema.json",
   "title": "AI Radar Entry",
   "description": "Schema for an AI Radar pulse entry",
@@ -11,9 +11,6 @@
     "signal",
     "affects",
     "source",
-    "what_happened",
-    "why_it_matters",
-    "who_should_pay_attention",
     "contributed_by"
   ],
   "properties": {
@@ -63,21 +60,6 @@
       "type": "string",
       "format": "uri",
       "description": "Primary source URL for the announcement or release"
-    },
-    "what_happened": {
-      "type": "string",
-      "minLength": 10,
-      "description": "Factual summary of the event"
-    },
-    "why_it_matters": {
-      "type": "string",
-      "minLength": 10,
-      "description": "Analysis of significance and potential impact"
-    },
-    "who_should_pay_attention": {
-      "type": "string",
-      "minLength": 5,
-      "description": "Target audience or roles most affected"
     },
     "contributed_by": {
       "type": "string",

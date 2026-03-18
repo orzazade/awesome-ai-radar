@@ -1,7 +1,7 @@
 ---
 title: "MCP Server Ecosystem Crosses 10,000 Published Servers"
 date: 2026-03-17
-category: "Ecosystem Growth"
+category: "Infrastructure"
 signal: "notable"
 affects: ["claude-code", "agents", "devtools", "open-source"]
 source: "https://github.com/modelcontextprotocol"

@@ -1,7 +1,7 @@
 ---
 title: "GitHub Copilot Agent Mode Exits Preview"
 date: 2026-03-17
-category: "Tool Launch"
+category: "Tool"
 signal: "incremental"
 affects: ["devtools", "agents", "enterprise"]
 source: "https://github.blog"

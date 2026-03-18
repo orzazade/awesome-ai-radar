@@ -1,7 +1,7 @@
 ---
 title: "AI Search Engines Are Not Replacing Google (Yet)"
 date: 2026-03-18
-category: "Industry Shift"
+category: "Paradigm"
 signal: "noise"
 affects: ["enterprise", "infrastructure"]
 source: "https://arstechnica.com"
