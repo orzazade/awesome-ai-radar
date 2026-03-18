@@ -316,3 +316,11 @@ Sort all verified findings chronologically and present:
 7. **Deduplication.** If the same news appears in multiple sources, pick the most authoritative/original source and discard duplicates.
 
 8. **Transparency.** If research yields fewer results than expected (e.g., a slow news week), say so. Do not pad the briefing with low-quality entries to fill space.
+
+9. **Source attribution rigor (contribute mode).** Every claim in an entry must be supportable by the cited source. Apply these rules before formatting entries:
+   - **Prefer primary sources.** Link to the official announcement, blog post, or release page — not a secondary news article about it. If only a secondary source is available, note it.
+   - **No absolute superlatives without proof.** Never write "best", "first", "only", "most" as unqualified absolutes. Use "appears to be", "reportedly", "among the first", or "one of the strongest" unless the claim is trivially verifiable (e.g., "first release" with a version number).
+   - **Legal and policy claims need qualifiers.** For lawsuits, regulations, policy disputes: always attribute ("according to [source]", "[Company] alleges", "as reported by [outlet]"). Never state legal claims as established fact from a single news article.
+   - **Unsourced comparisons are banned.** Never compare to another product/company ("Unlike X's approach...") without a citation for X's approach. Either add the citation or remove the comparison.
+   - **Generic URLs are rejected.** Source URLs must link to the specific announcement or page, not a generic news feed, homepage, or updates page.
+   - **Self-check before PR.** Before creating the PR, re-read each entry and ask: "Could a skeptical reader verify every claim in this entry from the cited source alone?" If not, soften the language or add sources.
