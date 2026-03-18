@@ -11,6 +11,105 @@
     "Assess",
     "Hold"
   ],
-  "entries": [],
+  "entries": [
+    {
+      "title": "AI Search Engines Are Not Replacing Google (Yet)",
+      "quadrant": "Paradigms",
+      "ring": "Hold",
+      "signal": "noise",
+      "url": "/awesome-ai-radar/pulse/ai-search-engines-overhyped/"
+    },
+    {
+      "title": "Anthropic Sues Pentagon After Refusing Mass Surveillance and Autonomous Weapons Use",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-pentagon-lawsuit/"
+    },
+    {
+      "title": "DeerFlow 2.0: ByteDance's Open-Source SuperAgent Harness",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/bytedance-deerflow-2/"
+    },
+    {
+      "title": "Claude Opus 4.6 Ships with 1M Token Context",
+      "quadrant": "Models",
+      "ring": "Adopt",
+      "signal": "game-changer",
+      "url": "/awesome-ai-radar/pulse/claude-opus-4-6/"
+    },
+    {
+      "title": "Gemini 3.1 Pro Doubles Reasoning with 77.1% ARC-AGI-2",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-3-1-pro/"
+    },
+    {
+      "title": "GitHub Copilot Agent Mode Exits Preview",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/github-copilot-agent-mode/"
+    },
+    {
+      "title": "GLM-5: First Frontier Model Trained Entirely on Non-NVIDIA Hardware",
+      "quadrant": "Models",
+      "ring": "Adopt",
+      "signal": "game-changer",
+      "url": "/awesome-ai-radar/pulse/glm-5-frontier-open-source/"
+    },
+    {
+      "title": "GPT-5.4 Ships in Three Variants with 1.05M Context",
+      "quadrant": "Models",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/gpt-5-4-release/"
+    },
+    {
+      "title": "Hindsight: MCP-Native Agent Memory Scoring 91% on LongMemEval",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/hindsight-agent-memory/"
+    },
+    {
+      "title": "LangChain Releases v1.0 After Two Years of Breaking Changes",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/langchain-v1/"
+    },
+    {
+      "title": "MCP Server Ecosystem Crosses 10,000 Published Servers",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/mcp-servers-growth/"
+    },
+    {
+      "title": "NVIDIA Nemotron 3 Super: Hybrid Mamba-Transformer MoE for Agentic AI",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/nvidia-nemotron-3-super/"
+    },
+    {
+      "title": "OpenAI Cuts GPT-5 Turbo Pricing by 40%",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/openai-gpt5-turbo-pricing/"
+    },
+    {
+      "title": "Perplexity Personal Computer: Always-On AI Agent with Local File Access",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/perplexity-personal-computer/"
+    }
+  ],
   "blips": []
 }
