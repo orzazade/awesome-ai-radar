@@ -10,11 +10,11 @@ contributed_by: "@orzazade via ai-radar skill"
 
 ## What happened
 
-Google released Gemini 3.1 Pro in preview, scoring 77.1% on ARC-AGI-2 — more than double the reasoning performance of Gemini 3 Pro. The model ships with a 1M token context window and is priced at $2/$12 per million tokens (input/output), making it one of the strongest price-to-performance options among closed frontier models at the time of release. Available through the Gemini API, AI Studio, Vertex AI, Gemini CLI, and Android Studio.
+Google released Gemini 3.1 Pro in preview, scoring 77.1% on ARC-AGI-2 — more than double the reasoning performance of Gemini 3 Pro. The model ships with a 1M token context window and is with competitive pricing across its Flex and Priority tiers, positioning it as a strong price-to-performance option among closed frontier models. Available through the Gemini API, AI Studio, Vertex AI, Gemini CLI, and Android Studio.
 
 ## Why it matters
 
-ARC-AGI-2 tests novel reasoning — problems the model has never seen before, not pattern matching from training data. Doubling this score in a single generation suggests Google found a genuine reasoning breakthrough, not just scale. At $2/$12 pricing with 1M context, Gemini 3.1 Pro is positioned as the default choice for cost-sensitive agentic workloads that still need strong reasoning. The quiet part: Google gained the most ground in the model race this quarter while Anthropic and OpenAI dominated headlines.
+ARC-AGI-2 tests novel reasoning — problems the model has never seen before, not pattern matching from training data. Doubling this score in a single generation suggests Google found a genuine reasoning breakthrough, not just scale. With competitive pricing and 1M context, Gemini 3.1 Pro is positioned as the default choice for cost-sensitive agentic workloads that still need strong reasoning. The quiet part: Google gained the most ground in the model race this quarter while Anthropic and OpenAI dominated headlines.
 
 ## Who should pay attention
 
