@@ -56,15 +56,39 @@ Build a mental model of: languages, frameworks, cloud providers, databases, and 
 
 ### Step 2 — Research
 
-Use `WebSearch` to query these sources for the **past 7 days**. Run all searches in parallel where possible:
+Use `WebSearch` to query these sources for the **past 7 days**. Run all searches in parallel where possible. **Diversity is critical** — aim for at least 4 different categories in your results, not just model releases.
 
-1. `"site:news.ycombinator.com AI OR LLM OR Claude OR GPT"` — Hacker News coverage
-2. `"site:reddit.com (r/MachineLearning OR r/LocalLLaMA OR r/ClaudeAI) new"` — Reddit communities
-3. `"site:github.com trending AI machine-learning"` — GitHub trending
-4. `"Anthropic OR OpenAI OR Google DeepMind blog announcement"` — Lab announcements
-5. `"AI developer tools new release"` — Tooling releases
+**Category 1: GitHub Trending & Open Source**
+1. `"github trending repositories this week"` — overall trending, not just AI
+2. `"github trending AI tools developer"` — AI-specific trending
+3. `"new open source AI project launch github stars"` — newly popular repos
+
+**Category 2: AI Company Releases & Changelogs**
+4. `"Anthropic changelog OR release OR announcement"` — Claude updates
+5. `"Claude Code release OR update OR changelog"` — Claude Code specifically
+6. `"OpenAI release OR changelog OR announcement"` — OpenAI updates
+7. `"Google DeepMind Gemini release OR update"` — Google AI updates
+
+**Category 3: Developer Tools & Ecosystem**
+8. `"MCP server new release model context protocol"` — MCP ecosystem
+9. `"AI coding tools release Cursor Windsurf Codex Copilot"` — AI IDE tools
+10. `"Vercel AI SDK OR LangChain OR CrewAI OR AutoGen release"` — AI frameworks
+11. `"AI developer tools new release this week"` — general dev tooling
+
+**Category 4: Community & Trends**
+12. `"site:news.ycombinator.com AI developer tools"` — HN discussions
+13. `"site:reddit.com r/ClaudeAI OR r/ChatGPT OR r/LocalLLaMA new this week"` — Reddit
+14. `"AI regulation policy governance news this week"` — policy/governance
+
+**Category 5: Infrastructure & Pricing**
+15. `"AI API pricing change cost reduction"` — pricing shifts
+16. `"AI infrastructure deployment hosting new"` — infra updates
+
+**IMPORTANT: Do NOT stop after finding model releases.** If your first 5 results are all model announcements, you're searching too narrowly. Force yourself to find at least: 1 trending GitHub repo, 1 developer tool update, 1 framework/SDK release, and 1 community/policy item.
 
 For each promising result, use `WebFetch` to verify the source exists and extract key details. If a URL returns an error or is paywalled, mark it as **unverified** and deprioritize it.
+
+**Anti-pattern: Do NOT generate entries from memory.** Every entry MUST come from a WebSearch result with a verified URL. If WebSearch returns nothing for a category, skip that category — never fill gaps with hallucinated content.
 
 ### Step 3 — Synthesize
 
