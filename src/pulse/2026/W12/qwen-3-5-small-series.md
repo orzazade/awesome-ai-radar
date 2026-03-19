@@ -4,13 +4,13 @@ date: 2026-03-02
 category: "Model Release"
 signal: "game-changer"
 affects: ["open-source", "edge-deployment", "efficiency", "multimodal"]
-source: "https://github.com/QwenLM/Qwen3.5"
+source: "https://huggingface.co/Qwen/Qwen3.5-9B"
 contributed_by: "@orzazade via ai-radar skill"
 ---
 
 ## What happened
 
-Alibaba's Qwen Team released the Qwen 3.5 Small series on March 2, 2026 — four dense models at 0.8B, 2B, 4B, and 9B parameters, all under Apache 2.0. The flagship 9B model scores 81.7 on GPQA Diamond, a graduate-level reasoning benchmark, surpassing OpenAI's GPT-OSS-120B (73.5) — a model with over thirteen times the parameter count. All models are natively multimodal (text, images, video) with a 262k context window extensible to over 1M tokens via YaRN scaling. The architecture combines Gated Delta Networks with sparse Mixture-of-Experts.
+Alibaba's Qwen Team released the Qwen 3.5 Small series on March 2, 2026 — four models at 0.8B, 2B, 4B, and 9B parameters, all under Apache 2.0. According to the official model card, the flagship 9B model scores 81.7 on GPQA Diamond, surpassing OpenAI's GPT-OSS-120B (80.1) on the same benchmark despite having over thirteen times fewer parameters. All models are natively multimodal (text, images, video) with a 262k context window extensible to over 1M tokens via YaRN scaling.
 
 ## Why it matters
 

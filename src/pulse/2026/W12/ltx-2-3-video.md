@@ -10,7 +10,7 @@ contributed_by: "@orzazade via ai-radar skill"
 
 ## What happened
 
-Lightricks released LTX 2.3, a 22-billion-parameter Diffusion Transformer model that generates synchronized video and audio in a single forward pass. The model supports resolutions up to 4K at 50 FPS and can produce clips up to 20 seconds long. It is open-source, lowering the barrier for video generation research and application development.
+Lightricks released LTX 2.3, a Diffusion Transformer model that generates synchronized video and audio in a single pass. The model supports resolutions up to 4K at 50 FPS and can produce clips up to 20 seconds long. It is open-source, lowering the barrier for video generation research and application development.
 
 ## Why it matters
 

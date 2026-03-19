@@ -10,7 +10,7 @@ contributed_by: "@orzazade via ai-radar skill"
 
 ## What happened
 
-OpenAI released GPT-5.4 mini and GPT-5.4 nano on March 17, 2026. Mini runs more than 2x faster than GPT-5 mini and approaches GPT-5.4 on benchmarks including SWE-Bench Pro, priced at $0.75 per million input tokens. Nano targets maximum throughput at $0.20 per million input tokens and is available exclusively via API. Simon Willison reported that nano can describe 76,000 photos for $52.
+OpenAI released GPT-5.4 mini and GPT-5.4 nano on March 17, 2026. Mini runs more than 2x faster than GPT-5 mini and approaches GPT-5.4 on benchmarks including SWE-Bench Pro, priced at $0.75 per million input tokens. Nano targets maximum throughput at $0.20 per million input tokens and is available exclusively via API.
 
 ## Why it matters
 
