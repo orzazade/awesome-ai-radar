@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   generate-digest:
@@ -39,14 +40,15 @@ jobs:
             echo "No feed generator found, skipping RSS generation"
           fi
 
-      - name: Commit and push changes
+      - name: Create PR with changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           YEAR=$(date -u +%Y)
           WEEK=$(date -u +%V)
-          WEEK_LABEL="${YEAR}-W${WEEK}"
+          DAY=$(date -u +%Y-%m-%d)
+          BRANCH="digest/${DAY}"
 
           git add -A
           if git diff --cached --quiet; then
@@ -54,5 +56,18 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: generate weekly digest for ${WEEK_LABEL}"
-          git push
+          git checkout -b "$BRANCH"
+          git commit -m "chore: generate daily digest for ${DAY}"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "chore: daily digest ${DAY}" \
+            --body "Automated daily digest generation for ${DAY} (${YEAR}-W${WEEK})." \
+            --base main \
+            --head "$BRANCH"
+
+          # Enable auto-merge (squash) — merges once required checks pass
+          PR_NUMBER=$(gh pr view "$BRANCH" --json number --jq '.number')
+          gh pr merge "$PR_NUMBER" --auto --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ github.token }}
