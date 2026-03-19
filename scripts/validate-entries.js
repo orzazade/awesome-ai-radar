@@ -65,6 +65,10 @@ const URL_ALLOWLIST = [
   "together.ai",
   "groq.com",
   "fireworks.ai",
+  "modelcontextprotocol.io",
+  "cursor.com",
+  "windsurf.com",
+  "code.claude.com",
 ];
 
 const DUPLICATE_THRESHOLD = 0.8;
