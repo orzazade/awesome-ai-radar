@@ -258,48 +258,81 @@ function generateDigestMarkdown(entries, year, week, dateRange) {
 // Update radar.json
 // ---------------------------------------------------------------------------
 
+// Map category to radar quadrant
+function categoryToQuadrant(category) {
+  const map = {
+    "Model Release": "Models",
+    "Tool": "Tools",
+    "Framework": "Frameworks",
+    "Paradigm": "Paradigms",
+    "Infrastructure": "Tools",
+    "Research": "Paradigms",
+  };
+  return map[category] || "Tools";
+}
+
+// Map signal to radar ring
+function signalToRing(signal) {
+  const map = {
+    "game-changer": "Adopt",
+    "notable": "Trial",
+    "incremental": "Assess",
+    "noise": "Hold",
+  };
+  return map[signal] || "Assess";
+}
+
 function updateRadar(entries) {
-  let radar = { blips: [] };
+  let radar = { quadrants: ["Models", "Tools", "Frameworks", "Paradigms"], rings: ["Adopt", "Trial", "Assess", "Hold"], entries: [] };
   if (fs.existsSync(RADAR_PATH)) {
     try {
-      radar = JSON.parse(fs.readFileSync(RADAR_PATH, "utf-8"));
+      const existing = JSON.parse(fs.readFileSync(RADAR_PATH, "utf-8"));
+      if (existing.entries) radar = existing;
     } catch {
-      radar = { blips: [] };
+      // use defaults
     }
   }
 
-  if (!Array.isArray(radar.blips)) {
-    radar.blips = [];
+  if (!Array.isArray(radar.entries)) {
+    radar.entries = [];
   }
 
-  const existingByTitle = new Map(radar.blips.map((b) => [b.name, b]));
+  const existingByTitle = new Map(radar.entries.map((b) => [b.title, b]));
 
   for (const entry of entries) {
-    if (!entry.radar_quadrant || !entry.radar_ring) continue;
+    const quadrant = entry.radar_quadrant || categoryToQuadrant(entry.category);
+    const ring = entry.radar_ring || signalToRing(entry.signal);
+
+    // Build URL path from file path
+    const slug = entry._file
+      ? path.basename(entry._file, ".md")
+      : entry.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const url = `/awesome-ai-radar/pulse/${slug}/`;
 
     const blip = {
-      name: entry.title,
-      quadrant: entry.radar_quadrant,
-      ring: entry.radar_ring,
-      date: entry.date,
-      category: entry.category,
+      title: entry.title,
+      quadrant: quadrant,
+      ring: ring,
       signal: entry.signal,
-      description: entry.what_happened || "",
+      url: url,
     };
 
     if (existingByTitle.has(entry.title)) {
       const existing = existingByTitle.get(entry.title);
       Object.assign(existing, blip);
     } else {
-      radar.blips.push(blip);
+      radar.entries.push(blip);
     }
   }
 
-  radar.blips.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  radar.entries.sort((a, b) => {
+    const ringOrder = { Adopt: 0, Trial: 1, Assess: 2, Hold: 3 };
+    return (ringOrder[a.ring] || 9) - (ringOrder[b.ring] || 9);
+  });
 
   fs.mkdirSync(path.dirname(RADAR_PATH), { recursive: true });
   fs.writeFileSync(RADAR_PATH, JSON.stringify(radar, null, 2) + "\n");
-  console.log(`Updated ${RADAR_PATH} (${radar.blips.length} blips)`);
+  console.log(`Updated ${RADAR_PATH} (${radar.entries.length} entries)`);
 }
 
 // ---------------------------------------------------------------------------
