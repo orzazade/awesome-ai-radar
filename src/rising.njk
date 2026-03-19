@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+title: Rising Stars
+description: Brand new repos with under 10 stars that deserve attention
+---
+
+<h1>Rising Stars</h1>
+<p class="page-subtitle">Brand new repos with under 10 stars that deserve your attention. These projects are early — but someone saw potential.</p>
+
+{% set risingEntries = collections.rising %}
+
+{% if risingEntries.length > 0 %}
+  <div class="rising-grid">
+    {% for entry in risingEntries %}
+      <article class="entry-card">
+        <div class="entry-meta">
+          <span class="signal-badge signal-{{ entry.data.signal }}">{{ entry.data.signal | signalEmoji }} rising</span>
+          <span>{{ entry.data.date | dateReadable }}</span>
+          <span>{{ entry.data.category }}</span>
+        </div>
+        <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+        {% if entry.data.stars is defined %}
+          <span class="tag">{{ entry.data.stars }} stars</span>
+        {% endif %}
+        {% if entry.data.affects %}
+          {% for tag in entry.data.affects %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+        <p>{{ entry.data.description or entry.templateContent | striptags | truncate(200) }}</p>
+        {% if entry.data.repo_url %}
+          <a href="{{ entry.data.repo_url }}" class="repo-link">View on GitHub →</a>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">
+    <p>No rising stars yet. Know a new repo that deserves attention?</p>
+    <p>Run <code>/ai-radar contribute</code> or <a href="{{ site.repo }}/blob/main/CONTRIBUTING.md">submit a PR</a> with a rising star entry.</p>
+  </div>
+{% endif %}
+
+<style>
+  .page-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+  .rising-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .repo-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+  }
+  .empty-state code {
+    background: var(--code-bg);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+  }
+</style>

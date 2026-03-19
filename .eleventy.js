@@ -41,6 +41,14 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Custom collection: rising stars (tagged as rising in frontmatter)
+  eleventyConfig.addCollection("rising", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/pulse/**/*.md")
+      .filter((item) => item.data.rising === true)
+      .sort((a, b) => b.date - a.date);
+  });
+
   // Filter: format date as "YYYY-MM-DD"
   eleventyConfig.addFilter("dateFormat", function (date) {
     if (!date) return "";

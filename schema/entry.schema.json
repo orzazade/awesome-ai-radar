@@ -93,6 +93,20 @@
         "Hold"
       ],
       "description": "Radar ring placement"
+    },
+    "rising": {
+      "type": "boolean",
+      "description": "Mark as a rising star (new repo with <10 stars that deserves attention)"
+    },
+    "stars": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "GitHub star count at time of submission (for rising star entries)"
+    },
+    "repo_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "GitHub repo URL (for rising star entries, distinct from source)"
     }
   },
   "additionalProperties": false
