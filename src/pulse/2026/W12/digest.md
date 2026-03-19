@@ -2,13 +2,13 @@
 title: "Weekly Digest — 2026 W12"
 week: "2026-W12"
 date: "2026-03-22"
-entries: 19
+entries: 25
 layout: digest.njk
 ---
 
 # Weekly Digest — 2026 W12
 
-**2026-03-16 – 2026-03-22** | 19 entries
+**2026-03-16 – 2026-03-22** | 25 entries
 
 ## This Week in Numbers
 
@@ -17,8 +17,8 @@ layout: digest.njk
 | Signal | Count |
 |--------|-------|
 | 🔴 game-changer | 3 |
-| 🟡 notable | 12 |
-| 🟢 incremental | 3 |
+| 🟡 notable | 16 |
+| 🟢 incremental | 5 |
 | ⚪ noise | 1 |
 
 ### By Category
@@ -26,9 +26,9 @@ layout: digest.njk
 | Category | Count |
 |----------|-------|
 | Model Release | 9 |
-| Paradigm | 4 |
-| Framework | 2 |
-| Tool | 2 |
+| Tool | 6 |
+| Paradigm | 5 |
+| Framework | 3 |
 | Infrastructure | 2 |
 
 ## 🔴 Game-changer
@@ -55,6 +55,10 @@ layout: digest.njk
 
 **Framework** | agents, open-source, backend, python | by @orzazade via ai-radar skill
 
+### [Claude Code Ships 16 Releases in March: Voice Mode, /loop, 128k Output](./claude-code-march-updates/)
+
+**Tool** | developer-tools, cli, agents, plugins | by @orzazade via ai-radar skill
+
 ### [Gemini 3.1 Pro Doubles Reasoning with 77.1% ARC-AGI-2](./gemini-3-1-pro/)
 
 **Model Release** | api, agents, enterprise, reasoning | by @orzazade via ai-radar skill
@@ -70,6 +74,10 @@ layout: digest.njk
 ### [Hindsight: MCP-Native Agent Memory Scoring 91% on LongMemEval](./hindsight-agent-memory/)
 
 **Tool** | agents, mcp, claude-code, memory, open-source | by @orzazade via ai-radar skill
+
+### [Karpathy's autoresearch Hits 23k Stars in 3 Days: AI Agents Running ML Research](./karpathy-autoresearch/)
+
+**Tool** | ml-research, agents, open-source, training | by @orzazade via ai-radar skill
 
 ### [LangChain Releases v1.0 After Two Years of Breaking Changes](./langchain-v1/)
 
@@ -95,7 +103,19 @@ layout: digest.njk
 
 **Paradigm** | agents, desktop, enterprise, macos | by @orzazade via ai-radar skill
 
+### [Vercel AI SDK 6 Adds Agents, Tool Approval, and Full MCP Support](./vercel-ai-sdk-6/)
+
+**Framework** | typescript, nextjs, agents, mcp, frameworks | by @orzazade via ai-radar skill
+
+### [VS Code 1.111 Debuts Weekly Releases, Autopilot Mode, and Agent Permissions](./vscode-1-111-autopilot/)
+
+**Tool** | ide, developer-tools, agents, copilot | by @orzazade via ai-radar skill
+
 ## 🟢 Incremental
+
+### [Cursor Adds JetBrains IDE Support](./cursor-jetbrains/)
+
+**Tool** | ide, developer-tools, jetbrains | by @orzazade via ai-radar skill
 
 ### [GitHub Copilot Agent Mode Exits Preview](./github-copilot-agent-mode/)
 
@@ -104,6 +124,10 @@ layout: digest.njk
 ### [GPT-5.4 Ships in Three Variants with 1.05M Context](./gpt-5-4-release/)
 
 **Model Release** | api, chatgpt, enterprise | by @orzazade via ai-radar skill
+
+### [MCP 2026 Roadmap: Horizontal Scaling, Enterprise Auth, and .well-known Discovery](./mcp-2026-roadmap/)
+
+**Paradigm** | mcp, infrastructure, enterprise, agents | by @orzazade via ai-radar skill
 
 ### [OpenAI Cuts GPT-5 Turbo Pricing by 40%](./openai-gpt5-turbo-pricing/)
 
