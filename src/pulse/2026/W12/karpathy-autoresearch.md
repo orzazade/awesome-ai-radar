@@ -10,7 +10,7 @@ contributed_by: "@orzazade via ai-radar skill"
 
 ## What happened
 
-Andrej Karpathy released autoresearch on March 6, 2026, a tool that enables AI agents to automatically run nanochat (small chat model) training research on a single GPU. The project reached 22,983 GitHub stars within three days and topped GitHub trending. The associated Hacker News discussion reached 198 points with 56 comments.
+Andrej Karpathy released autoresearch on March 6, 2026, a tool that enables AI agents to automatically run nanochat (small chat model) training research on a single GPU. As of March 9, the project had reached 22,983 GitHub stars and topped GitHub trending. The associated Hacker News discussion reached 198 points with 56 comments.
 
 ## Why it matters
 

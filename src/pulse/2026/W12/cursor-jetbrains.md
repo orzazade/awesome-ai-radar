@@ -1,6 +1,6 @@
 ---
 title: "Cursor Adds JetBrains IDE Support"
-date: 2026-03-10
+date: 2026-03-04
 category: "Tool"
 signal: "incremental"
 affects: ["ide", "developer-tools", "jetbrains"]
