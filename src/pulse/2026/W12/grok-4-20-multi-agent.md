@@ -4,7 +4,7 @@ date: 2026-03-09
 category: "Paradigm"
 signal: "notable"
 affects: ["agents", "reasoning", "hallucination-reduction"]
-source: "https://docs.x.ai/developers/models/grok-4.20-multi-agent-beta-0309"
+source: "https://x.ai/news/grok-4"
 contributed_by: "@orzazade via ai-radar skill"
 ---
 

@@ -4,7 +4,7 @@ date: 2026-03-02
 category: "Model Release"
 signal: "game-changer"
 affects: ["open-source", "edge-deployment", "efficiency", "multimodal"]
-source: "https://venturebeat.com/technology/alibabas-small-open-source-qwen3-5-9b-beats-openais-gpt-oss-120b-and-can-run"
+source: "https://github.com/QwenLM/Qwen3.5"
 contributed_by: "@orzazade via ai-radar skill"
 ---
 

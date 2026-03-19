@@ -4,7 +4,7 @@ date: 2026-03-06
 category: "Model Release"
 signal: "notable"
 affects: ["video-generation", "open-source", "creative-tools"]
-source: "https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases"
+source: "https://github.com/Lightricks/LTX-2"
 contributed_by: "@orzazade via ai-radar skill"
 ---
 
