@@ -84,7 +84,12 @@ Use `WebSearch` to query these sources for the **past 7 days**. Run all searches
 15. `"AI API pricing change cost reduction"` — pricing shifts
 16. `"AI infrastructure deployment hosting new"` — infra updates
 
-**IMPORTANT: Do NOT stop after finding model releases.** If your first 5 results are all model announcements, you're searching too narrowly. Force yourself to find at least: 1 trending GitHub repo, 1 developer tool update, 1 framework/SDK release, and 1 community/policy item.
+**Category 6: Rising Stars (new repos with <10 stars)**
+17. `"github.com created this week AI tool 0 stars"` — brand new repos
+18. `"Show HN: launched today AI"` — Show HN launches (often <10 stars)
+19. `"new open source project AI just launched github"` — fresh launches
+
+**IMPORTANT: Do NOT stop after finding model releases.** If your first 5 results are all model announcements, you're searching too narrowly. Force yourself to find at least: 1 trending GitHub repo, 1 developer tool update, 1 framework/SDK release, 1 community/policy item, and **1 rising star** (new repo with <10 stars that looks promising).
 
 For each promising result, use `WebFetch` to verify the source exists and extract key details. If a URL returns an error or is paywalled, mark it as **unverified** and deprioritize it.
 
@@ -148,7 +153,7 @@ Run the same research queries as briefing mode, but do **not** personalize. Eval
 
 ### Step 2 — Format Entries
 
-For each finding worth sharing (aim for **5-10 high-quality entries**, never more than 15), format as:
+For each finding worth sharing (aim for **5-10 high-quality entries**, never more than 15, **including at least 1 rising star**), format as:
 
 ```markdown
 ---
@@ -159,6 +164,23 @@ signal: "game-changer" | "notable" | "incremental"
 affects: ["tag1", "tag2"]
 source: "https://verified-url.com/..."
 contributed_by: "@username via ai-radar skill"
+---
+```
+
+**For Rising Star entries** (new repos with <10 stars), add these extra fields:
+
+```markdown
+---
+title: "[repo-name]: [what it does in one line]"
+date: YYYY-MM-DD
+category: "Tool" | "Framework" | "Research"
+signal: "notable" | "incremental"
+affects: ["tag1", "tag2"]
+source: "https://github.com/owner/repo"
+repo_url: "https://github.com/owner/repo"
+contributed_by: "@username via ai-radar skill"
+rising: true
+stars: 3
 ---
 
 ## What happened
