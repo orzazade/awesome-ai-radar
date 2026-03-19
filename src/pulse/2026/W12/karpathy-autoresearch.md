@@ -6,8 +6,6 @@ signal: "notable"
 affects: ["ml-research", "agents", "open-source", "training"]
 source: "https://github.com/karpathy/autoresearch"
 contributed_by: "@orzazade via ai-radar skill"
-rising: true
-stars: 22983
 ---
 
 ## What happened
