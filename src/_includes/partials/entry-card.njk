@@ -4,7 +4,7 @@
     <time datetime="{{ entry.data.date | dateFormat }}">{{ entry.data.date | dateReadable }}</time>
     <span class="tag">{{ entry.data.category }}</span>
   </div>
-  <h4><a href="{{ entry.url }}">{{ entry.data.title }}</a></h4>
+  <h4><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></h4>
   {% if entry.data.affects %}
     <div class="entry-affects">
       {% for tag in entry.data.affects %}

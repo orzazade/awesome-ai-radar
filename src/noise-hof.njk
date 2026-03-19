@@ -17,7 +17,7 @@ permalink: /noise/
           <span class="tag">{{ entry.data.category }}</span>
         {% endif %}
       </div>
-      <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+      <h3><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></h3>
       {% if entry.templateContent %}
         <div class="noise-explanation">
           {{ entry.templateContent | safe }}

@@ -18,7 +18,7 @@ description: Brand new repos with under 10 stars that deserve attention
           <span>{{ entry.data.date | dateReadable }}</span>
           <span>{{ entry.data.category }}</span>
         </div>
-        <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+        <h3><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></h3>
         {% if entry.data.stars is defined %}
           <span class="tag">{{ entry.data.stars }} stars</span>
         {% endif %}
