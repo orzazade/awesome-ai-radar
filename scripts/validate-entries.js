@@ -58,6 +58,7 @@ const URL_ALLOWLIST = [
   "nvidia.com",
   "perplexity.ai",
   "mistral.ai",
+  "x.ai",
   "cohere.com",
   "stability.ai",
   "replicate.com",
