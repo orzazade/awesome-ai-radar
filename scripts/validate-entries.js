@@ -134,6 +134,11 @@ function parseFrontmatter(content) {
         continue;
       }
 
+      // Cast booleans and integers
+      if (value === "true") value = true;
+      else if (value === "false") value = false;
+      else if (/^\d+$/.test(value)) value = parseInt(value, 10);
+
       data[key] = value;
       currentKey = key;
       currentArray = null;
