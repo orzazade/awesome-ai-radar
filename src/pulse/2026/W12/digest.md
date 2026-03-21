@@ -2,13 +2,13 @@
 title: "Weekly Digest — 2026 W12"
 week: "2026-W12"
 date: "2026-03-22"
-entries: 25
+entries: 33
 layout: digest.njk
 ---
 
 # Weekly Digest — 2026 W12
 
-**2026-03-16 – 2026-03-22** | 25 entries
+**2026-03-16 – 2026-03-22** | 33 entries
 
 ## This Week in Numbers
 
@@ -17,8 +17,8 @@ layout: digest.njk
 | Signal | Count |
 |--------|-------|
 | 🔴 game-changer | 3 |
-| 🟡 notable | 16 |
-| 🟢 incremental | 5 |
+| 🟡 notable | 20 |
+| 🟢 incremental | 9 |
 | ⚪ noise | 1 |
 
 ### By Category
@@ -26,10 +26,10 @@ layout: digest.njk
 | Category | Count |
 |----------|-------|
 | Model Release | 9 |
-| Tool | 6 |
+| Tool | 9 |
+| Infrastructure | 6 |
 | Paradigm | 5 |
-| Framework | 3 |
-| Infrastructure | 2 |
+| Framework | 4 |
 
 ## 🔴 Game-changer
 
@@ -91,6 +91,14 @@ layout: digest.njk
 
 **Infrastructure** | claude-code, agents, devtools, open-source | by @orzazade via ai-radar skill
 
+### [Meta Reveals Four MTIA Chip Generations by 2027 for AI Inference at Scale](./meta-mtia-chips/)
+
+**Infrastructure** | infrastructure, backend, mlops | by @orzazade via ai-radar skill
+
+### [Mistral Launches Forge: Enterprise Custom Model Training Platform](./mistral-forge/)
+
+**Tool** | backend, enterprise, mlops | by @orzazade via ai-radar skill
+
 ### [Mistral Small 4 Unifies Instruct, Reasoning, and Multimodal in One Open-Source MoE](./mistral-small-4/)
 
 **Model Release** | open-source, self-hosting, multimodal, agents | by @orzazade via ai-radar skill
@@ -99,9 +107,17 @@ layout: digest.njk
 
 **Model Release** | agents, inference, self-hosting, enterprise | by @orzazade via ai-radar skill
 
+### [obra/superpowers: Agentic Skills Framework Reaches 92k Stars](./obra-superpowers/)
+
+**Framework** | devtools, backend, frontend | by @orzazade via ai-radar skill
+
 ### [Perplexity Personal Computer: Always-On AI Agent with Local File Access](./perplexity-personal-computer/)
 
 **Paradigm** | agents, desktop, enterprise, macos | by @orzazade via ai-radar skill
+
+### [White House Unveils Six-Point National AI Legislative Framework](./us-ai-legislative-framework/)
+
+**Infrastructure** | policy, enterprise, infrastructure | by @orzazade via ai-radar skill
 
 ### [Vercel AI SDK 6 Adds Agents, Tool Approval, and Full MCP Support](./vercel-ai-sdk-6/)
 
@@ -113,9 +129,21 @@ layout: digest.njk
 
 ## 🟢 Incremental
 
+### [Anthropic Invests $100M in Claude Partner Network for Enterprise Adoption](./anthropic-partner-network/)
+
+**Infrastructure** | enterprise, backend | by @orzazade via ai-radar skill
+
+### [Crius: Autonomous Code Improvement Engine with Self-Improving Prompts](./crius-autonomous-code-agent/)
+
+**Tool** | devtools, backend, frontend | by @orzazade via ai-radar skill
+
 ### [Cursor Adds JetBrains IDE Support](./cursor-jetbrains/)
 
 **Tool** | ide, developer-tools, jetbrains | by @orzazade via ai-radar skill
+
+### [EU Council Agrees to Streamline AI Act with Extended Timelines and SME Relief](./eu-council-ai-act-streamlining/)
+
+**Infrastructure** | policy, enterprise | by @orzazade via ai-radar skill
 
 ### [GitHub Copilot Agent Mode Exits Preview](./github-copilot-agent-mode/)
 
@@ -132,6 +160,10 @@ layout: digest.njk
 ### [OpenAI Cuts GPT-5 Turbo Pricing by 40%](./openai-gpt5-turbo-pricing/)
 
 **Infrastructure** | api, enterprise, infrastructure | by @orzazade via ai-radar skill
+
+### [VS Code 1.112 Ships MCP Server Sandboxing and Expanded Agent Autonomy](./vscode-1-112/)
+
+**Tool** | devtools, frontend, backend | by @orzazade via ai-radar skill
 
 ## ⚪ Noise
 
