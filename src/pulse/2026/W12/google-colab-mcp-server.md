@@ -1,7 +1,7 @@
 ---
 title: "Google Releases Open-Source Colab MCP Server for Any AI Agent"
 date: 2026-03-17
-category: "Tool"
+category: "Tool Launch"
 signal: "notable"
 affects: ["mcp", "agents", "cloud", "notebooks", "python"]
 source: "https://developers.googleblog.com/announcing-the-colab-mcp-server-connect-any-ai-agent-to-google-colab/"

@@ -1,7 +1,7 @@
 ---
 title: "EU Council Agrees to Delay High-Risk AI Rules by Up to 16 Months"
 date: 2026-03-13
-category: "Infrastructure"
+category: "Regulation"
 signal: "incremental"
 affects: ["policy", "governance", "compliance", "enterprise"]
 source: "https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/"
