@@ -1,7 +1,7 @@
 ---
 title: "White House Unveils Six-Pronged National AI Legislative Framework"
 date: 2026-03-20
-category: "Regulation"
+category: "Infrastructure"
 signal: "notable"
 affects: ["policy", "governance", "compliance", "enterprise"]
 source: "https://www.whitehouse.gov/articles/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/"

@@ -1,7 +1,7 @@
 ---
 title: "superpowers: Shell-Based Agentic Skills Framework Hits GitHub Trending"
 date: 2026-03-19
-category: "Framework Update"
+category: "Framework"
 signal: "notable"
 affects: ["agents", "developer-tools", "cli", "plugins"]
 source: "https://github.com/obra/superpowers"
