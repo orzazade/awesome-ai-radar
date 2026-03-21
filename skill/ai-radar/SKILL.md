@@ -16,6 +16,8 @@ allowed-tools:
   - Glob
   - Grep
   - AskUserQuestion
+  - mcp__plugin_context-mode_context-mode__ctx_fetch_and_index
+  - mcp__plugin_context-mode_context-mode__ctx_search
 ---
 
 # AI Radar Skill
@@ -30,6 +32,51 @@ Parse the arguments after `/ai-radar`:
 - `catch-up [topic]` or `catchup [topic]` → **Catch-up mode** (extract everything after `catch-up` as the topic)
 
 If the argument does not match any mode, ask the user which mode they intended.
+
+---
+
+## Step 0 — Project Sync (ALL modes, run FIRST)
+
+Before any research, sync with the awesome-ai-radar project to get the schema, sources, and existing entries.
+
+### 0A. Locate the repo
+
+Try these locations in order:
+1. Check if cwd is inside `awesome-ai-radar` (check for `schema/entry.schema.json`)
+2. `~/Projects/scifi/awesome-ai-radar/`
+3. `/tmp/awesome-ai-radar-contribute/`
+4. If not found, clone: `gh repo clone orzazade/awesome-ai-radar /tmp/awesome-ai-radar-contribute`
+
+Set `RADAR_DIR` to the found path.
+
+### 0B. Read the schema
+
+Read `$RADAR_DIR/schema/entry.schema.json`. Extract:
+- **Valid categories**: from `properties.category.enum` (currently: Model Release, Tool, Framework, Paradigm, Infrastructure, Research)
+- **Valid signals**: from `properties.signal.enum`
+- **Required fields**: from `required` array
+- **Optional fields**: rising, stars, repo_url, radar_quadrant, radar_ring
+
+NEVER hardcode categories — always read them from the schema. This ensures the skill stays in sync even if the schema changes.
+
+### 0C. Read the source registry
+
+Read `$RADAR_DIR/src/_data/sources.json`. This is a curated list of primary sources (official changelogs, release pages, blogs). Use these in research.
+
+### 0D. Build dedup index (contribute mode only)
+
+Determine the current ISO week: `date +%Y-W%V` → e.g., `2026-W12`.
+Read all `.md` files in `$RADAR_DIR/src/pulse/YYYY/WXX/` (excluding `digest.md`).
+Extract titles and topics from frontmatter. Store as dedup index.
+
+### 0E. Skill version check
+
+Compare the installed skill (`~/.claude/skills/ai-radar/SKILL.md`) with the repo version (`$RADAR_DIR/skill/ai-radar/SKILL.md`). If the repo version is newer (check file modification time or content hash), inform the user:
+
+```
+The installed ai-radar skill is outdated. The repo has a newer version.
+Run: cp $RADAR_DIR/skill/ai-radar/SKILL.md ~/.claude/skills/ai-radar/SKILL.md
+```
 
 ---
 
@@ -54,46 +101,43 @@ Read these files to understand the user's stack, projects, and interests:
 
 Build a mental model of: languages, frameworks, cloud providers, databases, and domain interests.
 
-### Step 2 — Research
+### Step 2 — Research (Two-Phase)
 
-Use `WebSearch` to query these sources for the **past 7 days**. Run all searches in parallel where possible. **Diversity is critical** — aim for at least 4 different categories in your results, not just model releases.
+**Phase A — Primary Sources First:**
+
+Read `sources.json` (loaded in Step 0C). For each source with `check_frequency: "daily"`, fetch the URL and extract developments from the **past 7 days**.
+
+**Tool selection for fetching:**
+1. If `mcp__plugin_context-mode_context-mode__ctx_fetch_and_index` is available → use it (preferred, handles hooks)
+2. If `WebFetch` is available → use it as fallback
+3. If neither works → skip source with a note, rely on web search
+
+Prioritize official changelogs and release pages — these are the most reliable sources.
+
+**Phase B — Gap Fill with Web Search:**
+
+After checking primary sources, identify which categories have NO entries yet. For those gaps, run targeted `WebSearch` queries:
 
 **Category 1: GitHub Trending & Open Source**
-1. `"github trending repositories this week"` — overall trending, not just AI
-2. `"github trending AI tools developer"` — AI-specific trending
-3. `"new open source AI project launch github stars"` — newly popular repos
+1. `"github trending repositories this week"` — overall trending
+2. `"new open source AI project launch github stars"` — newly popular repos
 
-**Category 2: AI Company Releases & Changelogs**
-4. `"Anthropic changelog OR release OR announcement"` — Claude updates
-5. `"Claude Code release OR update OR changelog"` — Claude Code specifically
-6. `"OpenAI release OR changelog OR announcement"` — OpenAI updates
-7. `"Google DeepMind Gemini release OR update"` — Google AI updates
+**Category 2: AI Company Releases (only for companies NOT covered by sources.json)**
+3. Search for any major AI company not in the source registry
 
-**Category 3: Developer Tools & Ecosystem**
-8. `"MCP server new release model context protocol"` — MCP ecosystem
-9. `"AI coding tools release Cursor Windsurf Codex Copilot"` — AI IDE tools
-10. `"Vercel AI SDK OR LangChain OR CrewAI OR AutoGen release"` — AI frameworks
-11. `"AI developer tools new release this week"` — general dev tooling
+**Category 3: Community & Trends**
+4. `"site:news.ycombinator.com AI developer tools"` — HN discussions
+5. `"AI regulation policy governance news this week"` — policy/governance
 
-**Category 4: Community & Trends**
-12. `"site:news.ycombinator.com AI developer tools"` — HN discussions
-13. `"site:reddit.com r/ClaudeAI OR r/ChatGPT OR r/LocalLLaMA new this week"` — Reddit
-14. `"AI regulation policy governance news this week"` — policy/governance
+**Category 4: Rising Stars**
+6. `"Show HN: launched today AI"` — Show HN launches
+7. `"github.com created this week AI tool new repo"` — fresh launches
 
-**Category 5: Infrastructure & Pricing**
-15. `"AI API pricing change cost reduction"` — pricing shifts
-16. `"AI infrastructure deployment hosting new"` — infra updates
+**IMPORTANT: Do NOT re-search for things already found via primary sources.** The web search is a gap-filler, not a replacement.
 
-**Category 6: Rising Stars (new repos with <10 stars)**
-17. `"github.com created this week AI tool 0 stars"` — brand new repos
-18. `"Show HN: launched today AI"` — Show HN launches (often <10 stars)
-19. `"new open source project AI just launched github"` — fresh launches
+For each promising web search result, verify the source URL using the fetch tool (Phase A tool selection logic).
 
-**IMPORTANT: Do NOT stop after finding model releases.** If your first 5 results are all model announcements, you're searching too narrowly. Force yourself to find at least: 1 trending GitHub repo, 1 developer tool update, 1 framework/SDK release, 1 community/policy item, and **1 rising star** (new repo with <10 stars that looks promising).
-
-For each promising result, use `WebFetch` to verify the source exists and extract key details. If a URL returns an error or is paywalled, mark it as **unverified** and deprioritize it.
-
-**Anti-pattern: Do NOT generate entries from memory.** Every entry MUST come from a WebSearch result with a verified URL. If WebSearch returns nothing for a category, skip that category — never fill gaps with hallucinated content.
+**Anti-pattern: Do NOT generate entries from memory.** Every entry MUST come from a primary source or WebSearch result with a verified URL.
 
 ### Step 3 — Synthesize
 
@@ -120,7 +164,7 @@ Present the briefing in this exact format:
 ```markdown
 ## AI Radar Briefing — [YYYY-MM-DD]
 
-Based on your stack: [one-line summary of detected stack, e.g., "NestJS, TypeORM, PostgreSQL, Expo, Swift/SwiftUI, Python/Freqtrade"]
+Based on your stack: [one-line summary of detected stack]
 
 ### Game-changers
 - **[Title]** ([source link])
@@ -149,9 +193,15 @@ Trigger: `/ai-radar contribute`
 
 ### Step 1 — Research (Neutral Perspective)
 
-Run the same research queries as briefing mode, but do **not** personalize. Evaluate from a neutral, community-wide perspective. The goal is to find entries valuable to the broader developer community.
+Run the same two-phase research (Step 0 + Primary Sources + Gap Fill) as briefing mode, but do **not** personalize. Evaluate from a neutral, community-wide perspective.
 
-### Step 2 — Format Entries
+### Step 2 — Dedup Check
+
+Before formatting entries, compare each finding against the dedup index (built in Step 0D):
+- If a topic is already covered by an existing entry in the current week → skip it
+- Note skipped duplicates in the output so the user knows
+
+### Step 3 — Format Entries
 
 For each finding worth sharing (aim for **5-10 high-quality entries**, never more than 15, **including at least 1 rising star**), format as:
 
@@ -159,65 +209,87 @@ For each finding worth sharing (aim for **5-10 high-quality entries**, never mor
 ---
 title: "[Concise, descriptive title]"
 date: YYYY-MM-DD
-category: "Model Release" | "Tool" | "Framework" | "Paradigm" | "Infrastructure" | "Research"
+category: "[from schema — MUST be one of the valid categories read in Step 0B]"
 signal: "game-changer" | "notable" | "incremental"
 affects: ["tag1", "tag2"]
 source: "https://verified-url.com/..."
 contributed_by: "@username via ai-radar skill"
----
-```
-
-**For Rising Star entries** (new repos with <10 stars), add these extra fields:
-
-```markdown
----
-title: "[repo-name]: [what it does in one line]"
-date: YYYY-MM-DD
-category: "Tool" | "Framework" | "Research"
-signal: "notable" | "incremental"
-affects: ["tag1", "tag2"]
-source: "https://github.com/owner/repo"
-repo_url: "https://github.com/owner/repo"
-contributed_by: "@username via ai-radar skill"
-rising: true
-stars: 3
+radar_quadrant: "[auto-assigned — see mapping below]"
+radar_ring: "[auto-assigned — see mapping below]"
 ---
 
 ## What happened
 
-[One paragraph. Factual. No hype. State what was released/announced/discovered and by whom.]
+[One paragraph. Factual. No hype.]
 
 ## Why it matters
 
-[One paragraph. Not what it IS, but why developers should CARE. Focus on practical implications.]
+[One paragraph. Why developers should CARE.]
 
 ## Who should pay attention
 
-[Bullet list of specific developer profiles who would benefit, e.g., "Python ML engineers using PyTorch", "Teams running self-hosted LLMs"]
+[Bullet list of specific developer profiles.]
 ```
 
-**Category definitions:**
-- **Model Release**: New model or major version (GPT-5, Claude 4, Llama 4, etc.)
+**For Rising Star entries**, add these extra fields:
+
+```markdown
+rising: true
+stars: [number]
+repo_url: "https://github.com/owner/repo"
+```
+
+**Radar Quadrant auto-mapping** (from category):
+- Model Release → Models
+- Tool → Tools
+- Framework → Frameworks
+- Paradigm → Paradigms
+- Infrastructure → Tools
+- Research → Paradigms
+
+**Radar Ring auto-mapping** (from signal):
+- game-changer → Adopt
+- notable → Trial
+- incremental → Assess
+- noise → Hold
+
+**Category definitions** (MUST match schema/entry.schema.json):
+- **Model Release**: New model or major version
 - **Tool**: Developer tools, CLI tools, IDE extensions, MCP servers
 - **Framework**: Libraries, SDKs, frameworks for building AI applications
 - **Paradigm**: New approaches, architectural patterns, workflow changes
-- **Infrastructure**: Hosting, serving, training infrastructure, cost changes
+- **Infrastructure**: Hosting, serving, training infrastructure, cost changes, policy/regulation
 - **Research**: Papers, benchmarks, safety research with practical implications
 
 **Quality gates — an entry must have:**
-- A verified, accessible source URL (confirmed via WebFetch)
+- A verified, accessible source URL (confirmed via fetch)
 - Clear practical relevance (not just academic novelty)
 - A signal level of "incremental" or above (never contribute "noise")
 
-### Step 3 — User Review
+### Step 4 — Validate Against Schema
+
+Before presenting entries to the user, validate each entry's frontmatter:
+
+1. Read `schema/entry.schema.json` (already loaded in Step 0B)
+2. For each entry, check:
+   - All required fields present: title, date, category, signal, affects, source, contributed_by
+   - `category` is in the schema's enum list
+   - `signal` is in the schema's enum list
+   - `source` is a valid URI (not a generic homepage)
+   - `affects` is a non-empty array
+   - If `rising: true`, check that `repo_url` and `stars` are also present
+3. If validation fails, fix the entry before proceeding
+4. Optionally, if Node.js is available, run: `node $RADAR_DIR/scripts/validate-entries.js <files>`
+
+### Step 5 — User Review
 
 Before creating any PR, present all formatted entries to the user using `AskUserQuestion`:
 
 ```
-I found [N] entries worth contributing. Here's the summary:
+I found [N] entries worth contributing ([M] skipped as duplicates of existing entries).
 
-1. [Title] — [category] — [signal level]
-2. [Title] — [category] — [signal level]
+1. [Title] — [category] — [signal level] — [quadrant]/[ring]
+2. [Title] — [category] — [signal level] — [quadrant]/[ring]
 ...
 
 Should I proceed with creating a PR? You can also:
@@ -228,30 +300,22 @@ Should I proceed with creating a PR? You can also:
 
 Wait for confirmation before proceeding.
 
-### Step 4 — Create PR
+### Step 6 — Create PR
 
 Determine the current ISO week number and year for the directory path.
 
-**Option A — GitHub MCP (preferred):**
+**Option A — Direct repo access (preferred when cwd is in the repo):**
 
-Check if `mcp__github__*` tools are available. If yes:
+If `$RADAR_DIR` is the local source repo (not /tmp clone):
 
-1. Fork `orzazade/awesome-ai-radar` if not already forked
-2. Create branch: `radar/YYYY-MM-DD-[username]`
-3. Write each entry as a separate `.md` file in `src/pulse/YYYY/WXX/` (e.g., `src/pulse/2026/W12/claude-code-plugins.md`)
-4. Use `mcp__github__create_pull_request` with:
-   - Title: `radar: [YYYY-MM-DD] AI trends by @[username]`
-   - Body: Summary of entries with links
+1. Create branch: `git checkout -b radar/YYYY-MM-DD`
+2. Write entries to `src/pulse/YYYY/WXX/`
+3. Run digest: `node scripts/generate-digest.js`
+4. Commit, push, create PR via `gh pr create`
 
-**Option B — gh CLI fallback:**
-
-If GitHub MCP is not available, use the `gh` CLI:
+**Option B — gh CLI with clone:**
 
 ```bash
-# Ensure fork exists
-gh repo fork orzazade/awesome-ai-radar --clone=false 2>/dev/null || true
-
-# Clone or update local copy
 RADAR_DIR="/tmp/awesome-ai-radar-contribute"
 if [ -d "$RADAR_DIR" ]; then
   cd "$RADAR_DIR" && git fetch origin && git checkout main && git pull
@@ -260,34 +324,41 @@ else
   cd "$RADAR_DIR"
 fi
 
-# Create branch
 BRANCH="radar/$(date +%Y-%m-%d)-$(whoami)"
 git checkout -b "$BRANCH"
 
 # Write entry files to src/pulse/YYYY/WXX/
-# ... (write files using the Write tool)
+# Run digest generation
+node scripts/generate-digest.js
 
-# Commit and push
 git add .
 git commit -m "radar: $(date +%Y-%m-%d) AI trends"
 git push -u origin "$BRANCH"
-
-# Create PR
 gh pr create --title "radar: $(date +%Y-%m-%d) AI trends by @$(whoami)" --body "..."
 ```
 
-**Option C — Local fallback:**
+**Option C — GitHub MCP:**
 
-If neither MCP nor `gh` is available:
+If `mcp__github__*` tools are available and no local repo:
 
-1. Write all entries to a temporary file at `/tmp/ai-radar-entries-YYYY-MM-DD.md`
-2. Tell the user: "GitHub tools are not available. Entries saved to [path]. To contribute manually, copy these files to the awesome-ai-radar repo under `src/pulse/YYYY/WXX/` and open a PR."
+1. Fork `orzazade/awesome-ai-radar` if not already forked
+2. Create branch: `radar/YYYY-MM-DD-[username]`
+3. Write each entry as a separate `.md` file in `src/pulse/YYYY/WXX/`
+4. Use `mcp__github__create_pull_request`
 
-### Step 5 — Report
+**Option D — Local fallback:**
+
+If no GitHub access:
+1. Write entries to `/tmp/ai-radar-entries-YYYY-MM-DD/`
+2. Tell the user to copy files and open a PR manually
+
+### Step 7 — Report
 
 Show the user:
 - Number of entries contributed
+- Number of duplicates skipped
 - PR link (if created)
+- Validation results (all passed / any warnings)
 - File paths (if saved locally)
 
 ---
@@ -302,7 +373,9 @@ Extract the topic from the arguments. If no topic is provided, ask the user what
 
 ### Step 2 — Deep Research
 
-Use `WebSearch` with targeted queries. Go back **30 days** instead of 7. Run multiple search variations:
+**Phase A — Primary Sources:** Check `sources.json` for any sources related to the topic. Fetch their changelogs/blogs and extract relevant entries from the **past 30 days**.
+
+**Phase B — Web Search:** Use `WebSearch` with targeted queries going back **30 days**:
 
 1. `"[topic] announcement OR release OR launch"` — official releases
 2. `"[topic] tutorial OR guide OR getting started"` — adoption signals
@@ -325,16 +398,14 @@ Sort all verified findings chronologically and present:
 | Date | Event | Significance |
 |------|-------|-------------|
 | YYYY-MM-DD | [What happened] ([source]) | game-changer / notable / incremental |
-| YYYY-MM-DD | [What happened] ([source]) | ... |
 
 ### Current State
 
-[2-3 paragraphs summarizing where things stand today. What works, what doesn't, what's mature vs experimental.]
+[2-3 paragraphs summarizing where things stand today.]
 
 ### What to Watch
 
 - **[Upcoming thing 1]** — [why it matters, expected timeline]
-- **[Upcoming thing 2]** — [why it matters, expected timeline]
 
 ### Resources
 
@@ -347,26 +418,34 @@ Sort all verified findings chronologically and present:
 
 ## Rules — Apply to All Modes
 
-1. **Never fabricate sources.** Every URL must be real and verified via WebFetch. If you cannot verify a source, mark it as "unverified" and exclude it from contribute mode entirely.
+1. **Never fabricate sources.** Every URL must be real and verified via fetch. If you cannot verify a source, mark it as "unverified" and exclude it from contribute mode entirely.
 
-2. **Be conservative with signal levels.** Most developments are "incremental" or "noise." True "game-changers" happen a few times per month at most. When in doubt, rate lower.
+2. **Primary sources first.** Always check official changelogs and release pages (from sources.json) before falling back to web searches. An official changelog is more authoritative than a tech blog's summary of it.
 
-3. **Quality over quantity.** For contribute mode, 5 well-researched entries beat 20 shallow ones. For briefing mode, a short briefing with high signal-to-noise ratio beats a long one full of noise.
+3. **Be conservative with signal levels.** Most developments are "incremental" or "noise." True "game-changers" happen a few times per month at most. When in doubt, rate lower.
 
-4. **Respect rate limits.** Space out WebFetch calls. If you hit a rate limit or timeout, note it and move on rather than retrying aggressively.
+4. **Quality over quantity.** For contribute mode, 5 well-researched entries beat 20 shallow ones. For briefing mode, a short briefing with high signal-to-noise ratio beats a long one full of noise.
 
-5. **Date awareness.** Always anchor searches to the correct time window. Use the current date from the system context. For briefing mode, search the past 7 days. For catch-up mode, search the past 30 days.
+5. **Context-mode compatibility.** When fetching URLs:
+   - If `mcp__plugin_context-mode_context-mode__ctx_fetch_and_index` is available → use it (it handles WebFetch hooks)
+   - If only `WebFetch` is available → use it
+   - If neither works → note the source as unverified and move on
+   - For follow-up queries on fetched content, use `mcp__plugin_context-mode_context-mode__ctx_search`
 
-6. **No paywalled content.** If a source is behind a paywall and you cannot access the content, do not include it. Mention it in a footnote at most.
+6. **Date awareness.** Always anchor searches to the correct time window. Use the current date from the system context. For briefing mode, search the past 7 days. For catch-up mode, search the past 30 days.
 
-7. **Deduplication.** If the same news appears in multiple sources, pick the most authoritative/original source and discard duplicates.
+7. **No paywalled content.** If a source is behind a paywall and you cannot access the content, do not include it.
 
-8. **Transparency.** If research yields fewer results than expected (e.g., a slow news week), say so. Do not pad the briefing with low-quality entries to fill space.
+8. **Deduplication.** If the same news appears in multiple sources, pick the most authoritative/original source and discard duplicates. In contribute mode, also check against existing entries in the current week's directory.
 
-9. **Source attribution rigor (contribute mode).** Every claim in an entry must be supportable by the cited source. Apply these rules before formatting entries:
-   - **Prefer primary sources.** Link to the official announcement, blog post, or release page — not a secondary news article about it. If only a secondary source is available, note it.
-   - **No absolute superlatives without proof.** Never write "best", "first", "only", "most" as unqualified absolutes. Use "appears to be", "reportedly", "among the first", or "one of the strongest" unless the claim is trivially verifiable (e.g., "first release" with a version number).
-   - **Legal and policy claims need qualifiers.** For lawsuits, regulations, policy disputes: always attribute ("according to [source]", "[Company] alleges", "as reported by [outlet]"). Never state legal claims as established fact from a single news article.
-   - **Unsourced comparisons are banned.** Never compare to another product/company ("Unlike X's approach...") without a citation for X's approach. Either add the citation or remove the comparison.
-   - **Generic URLs are rejected.** Source URLs must link to the specific announcement or page, not a generic news feed, homepage, or updates page.
-   - **Self-check before PR.** Before creating the PR, re-read each entry and ask: "Could a skeptical reader verify every claim in this entry from the cited source alone?" If not, soften the language or add sources.
+9. **Transparency.** If research yields fewer results than expected (slow news week), say so. Do not pad with low-quality entries.
+
+10. **Schema compliance.** Never hardcode categories or signal values — always read them from `schema/entry.schema.json`. This ensures the skill stays in sync with the project.
+
+11. **Source attribution rigor (contribute mode):**
+    - **Prefer primary sources.** Link to the official announcement, not a secondary article.
+    - **No absolute superlatives without proof.** Use "appears to be", "reportedly", "among the first" unless trivially verifiable.
+    - **Legal and policy claims need qualifiers.** Always attribute.
+    - **Unsourced comparisons are banned.** Never compare without citation.
+    - **Generic URLs are rejected.** Source URLs must link to the specific page.
+    - **Self-check before PR.** "Could a skeptical reader verify every claim from the cited source alone?"

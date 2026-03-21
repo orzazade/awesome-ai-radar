@@ -65,7 +65,7 @@ Specific roles or profiles. "AI engineers building agent systems" is good.
 |-------|----------|--------|
 | `title` | Yes | Short, descriptive title |
 | `date` | Yes | ISO date (YYYY-MM-DD) |
-| `category` | Yes | `Model Release`, `Tool Launch`, `Framework Update`, `Research Paper`, `Industry Shift`, `Ecosystem Growth`, `Regulation`, `Funding` |
+| `category` | Yes | `Model Release`, `Tool`, `Framework`, `Paradigm`, `Infrastructure`, `Research` (must match `schema/entry.schema.json`) |
 | `signal` | Yes | `game-changer`, `notable`, `incremental`, `noise` |
 | `affects` | Yes | Array of tags: `claude-code`, `api`, `agents`, `rag`, `fine-tuning`, `open-source`, `enterprise`, `mobile`, `devtools`, `infrastructure`, `safety`, `regulation` |
 | `source` | Yes | URL to the primary source (not a summary blog) |
