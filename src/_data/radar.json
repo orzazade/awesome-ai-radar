@@ -125,6 +125,34 @@
       "url": "/awesome-ai-radar/pulse/vscode-1-111-autopilot/"
     },
     {
+      "title": "Meta Reveals Four MTIA Chip Generations by 2027 for AI Inference at Scale",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/meta-mtia-chips/"
+    },
+    {
+      "title": "Mistral Launches Forge: Enterprise Custom Model Training Platform",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/mistral-forge/"
+    },
+    {
+      "title": "obra/superpowers: Agentic Skills Framework Reaches 92k Stars",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/obra-superpowers/"
+    },
+    {
+      "title": "White House Unveils Six-Point National AI Legislative Framework",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/us-ai-legislative-framework/"
+    },
+    {
       "title": "GitHub Copilot Agent Mode Exits Preview",
       "quadrant": "Tools",
       "ring": "Assess",
@@ -158,6 +186,34 @@
       "ring": "Assess",
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/mcp-2026-roadmap/"
+    },
+    {
+      "title": "Anthropic Invests $100M in Claude Partner Network for Enterprise Adoption",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-partner-network/"
+    },
+    {
+      "title": "EU Council Agrees to Streamline AI Act with Extended Timelines and SME Relief",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/eu-council-ai-act-streamlining/"
+    },
+    {
+      "title": "VS Code 1.112 Ships MCP Server Sandboxing and Expanded Agent Autonomy",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/vscode-1-112/"
+    },
+    {
+      "title": "Crius: Autonomous Code Improvement Engine with Self-Improving Prompts",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/crius-autonomous-code-agent/"
     },
     {
       "title": "AI Search Engines Are Not Replacing Google (Yet)",
