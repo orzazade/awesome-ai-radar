@@ -1,0 +1,180 @@
+{
+  "$schema": "Sources registry for AI Radar skill. The skill checks these FIRST before web searches.",
+  "sources": [
+    {
+      "name": "Anthropic Blog",
+      "url": "https://www.anthropic.com/news",
+      "type": "blog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Anthropic API Release Notes",
+      "url": "https://docs.anthropic.com/en/release-notes/overview",
+      "type": "changelog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Claude Code Changelog",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "type": "changelog",
+      "category": "Tool",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Claude Code GitHub Releases",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "type": "releases",
+      "category": "Tool",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/index",
+      "type": "blog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "OpenAI Model Release Notes",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "type": "changelog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "ChatGPT Release Notes",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "type": "changelog",
+      "category": "Tool",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/",
+      "type": "blog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Google AI Developer Changelog",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "type": "changelog",
+      "category": "Model Release",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Google Developers Blog",
+      "url": "https://developers.googleblog.com/",
+      "type": "blog",
+      "category": "Tool",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog/",
+      "type": "blog",
+      "category": "Model Release",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "Mistral AI Blog",
+      "url": "https://mistral.ai/news/",
+      "type": "blog",
+      "category": "Model Release",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "HuggingFace Blog",
+      "url": "https://huggingface.co/blog",
+      "type": "blog",
+      "category": "Framework",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "MCP Blog",
+      "url": "https://blog.modelcontextprotocol.io/",
+      "type": "blog",
+      "category": "Paradigm",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "MCP Servers Repo",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "type": "releases",
+      "category": "Tool",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "Vercel AI SDK Releases",
+      "url": "https://github.com/vercel/ai/releases",
+      "type": "releases",
+      "category": "Framework",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "LangChain Blog",
+      "url": "https://blog.langchain.dev/",
+      "type": "blog",
+      "category": "Framework",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "Cursor Changelog",
+      "url": "https://www.cursor.com/changelog",
+      "type": "changelog",
+      "category": "Tool",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "GitHub Copilot Changelog",
+      "url": "https://github.blog/changelog/",
+      "type": "changelog",
+      "category": "Tool",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "GitHub Trending",
+      "url": "https://github.com/trending",
+      "type": "community",
+      "category": "Tool",
+      "check_frequency": "daily"
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/",
+      "type": "community",
+      "category": null,
+      "check_frequency": "daily"
+    },
+    {
+      "name": "r/ClaudeAI",
+      "url": "https://www.reddit.com/r/ClaudeAI/",
+      "type": "community",
+      "category": null,
+      "check_frequency": "daily"
+    },
+    {
+      "name": "r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/",
+      "type": "community",
+      "category": null,
+      "check_frequency": "daily"
+    },
+    {
+      "name": "NVIDIA Developer Blog",
+      "url": "https://developer.nvidia.com/blog/",
+      "type": "blog",
+      "category": "Infrastructure",
+      "check_frequency": "weekly"
+    },
+    {
+      "name": "arXiv AI Papers",
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "type": "community",
+      "category": "Research",
+      "check_frequency": "weekly"
+    }
+  ]
+}
