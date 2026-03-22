@@ -153,6 +153,34 @@
       "url": "/awesome-ai-radar/pulse/us-ai-legislative-framework/"
     },
     {
+      "title": "Anthropic Launches Multi-Agent Code Review for Claude Code",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-code-review/"
+    },
+    {
+      "title": "Claude Cowork Dispatch: Persistent Agent Threads from Phone to Desktop",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/claude-cowork-dispatch/"
+    },
+    {
+      "title": "Google Stitch Introduces Vibe Design: AI-Native UI Canvas with Voice Interaction",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/google-stitch-vibe-design/"
+    },
+    {
+      "title": "NVIDIA Launches Agent Toolkit and OpenShell for Enterprise AI Agents",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/nvidia-agent-toolkit-openshell/"
+    },
+    {
       "title": "GitHub Copilot Agent Mode Exits Preview",
       "quadrant": "Tools",
       "ring": "Assess",
@@ -214,6 +242,27 @@
       "ring": "Assess",
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/crius-autonomous-code-agent/"
+    },
+    {
+      "title": "Adobe Firefly Custom Models Enter Public Beta",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/adobe-firefly-custom-models/"
+    },
+    {
+      "title": "Anthropic Launches The Anthropic Institute for AI Safety and Societal Impact Research",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-institute/"
+    },
+    {
+      "title": "OpenGitClaw: Autonomous GitHub Repository Maintenance Agent",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/opengitclaw/"
     },
     {
       "title": "AI Search Engines Are Not Replacing Google (Yet)",

@@ -2,13 +2,13 @@
 title: "Weekly Digest — 2026 W12"
 week: "2026-W12"
 date: "2026-03-22"
-entries: 33
+entries: 40
 layout: digest.njk
 ---
 
 # Weekly Digest — 2026 W12
 
-**2026-03-16 – 2026-03-22** | 33 entries
+**2026-03-16 – 2026-03-22** | 40 entries
 
 ## This Week in Numbers
 
@@ -17,19 +17,20 @@ layout: digest.njk
 | Signal | Count |
 |--------|-------|
 | 🔴 game-changer | 3 |
-| 🟡 notable | 20 |
-| 🟢 incremental | 9 |
+| 🟡 notable | 24 |
+| 🟢 incremental | 12 |
 | ⚪ noise | 1 |
 
 ### By Category
 
 | Category | Count |
 |----------|-------|
+| Tool | 14 |
 | Model Release | 9 |
-| Tool | 9 |
-| Infrastructure | 6 |
+| Infrastructure | 7 |
 | Paradigm | 5 |
 | Framework | 4 |
+| Research | 1 |
 
 ## 🔴 Game-changer
 
@@ -47,6 +48,10 @@ layout: digest.njk
 
 ## 🟡 Notable
 
+### [Anthropic Launches Multi-Agent Code Review for Claude Code](./anthropic-code-review/)
+
+**Tool** | backend, frontend, devops | by @orzazade via ai-radar skill
+
 ### [Anthropic Sues Pentagon After Refusing Mass Surveillance and Autonomous Weapons Use](./anthropic-pentagon-lawsuit/)
 
 **Paradigm** | policy, enterprise, safety, governance | by @orzazade via ai-radar skill
@@ -59,9 +64,17 @@ layout: digest.njk
 
 **Tool** | developer-tools, cli, agents, plugins | by @orzazade via ai-radar skill
 
+### [Claude Cowork Dispatch: Persistent Agent Threads from Phone to Desktop](./claude-cowork-dispatch/)
+
+**Tool** | backend, frontend, devops, mobile | by @orzazade via ai-radar skill
+
 ### [Gemini 3.1 Pro Doubles Reasoning with 77.1% ARC-AGI-2](./gemini-3-1-pro/)
 
 **Model Release** | api, agents, enterprise, reasoning | by @orzazade via ai-radar skill
+
+### [Google Stitch Introduces Vibe Design: AI-Native UI Canvas with Voice Interaction](./google-stitch-vibe-design/)
+
+**Tool** | frontend, mobile, design | by @orzazade via ai-radar skill
 
 ### [OpenAI Releases GPT-5.4 Mini and Nano for High-Volume Workloads](./gpt-5-4-mini-nano/)
 
@@ -103,6 +116,10 @@ layout: digest.njk
 
 **Model Release** | open-source, self-hosting, multimodal, agents | by @orzazade via ai-radar skill
 
+### [NVIDIA Launches Agent Toolkit and OpenShell for Enterprise AI Agents](./nvidia-agent-toolkit-openshell/)
+
+**Infrastructure** | backend, devops, infrastructure | by @orzazade via ai-radar skill
+
 ### [NVIDIA Nemotron 3 Super: Hybrid Mamba-Transformer MoE for Agentic AI](./nvidia-nemotron-3-super/)
 
 **Model Release** | agents, inference, self-hosting, enterprise | by @orzazade via ai-radar skill
@@ -128,6 +145,14 @@ layout: digest.njk
 **Tool** | ide, developer-tools, agents, copilot | by @orzazade via ai-radar skill
 
 ## 🟢 Incremental
+
+### [Adobe Firefly Custom Models Enter Public Beta](./adobe-firefly-custom-models/)
+
+**Tool** | design, frontend | by @orzazade via ai-radar skill
+
+### [Anthropic Launches The Anthropic Institute for AI Safety and Societal Impact Research](./anthropic-institute/)
+
+**Research** | policy, safety, research | by @orzazade via ai-radar skill
 
 ### [Anthropic Invests $100M in Claude Partner Network for Enterprise Adoption](./anthropic-partner-network/)
 
@@ -160,6 +185,10 @@ layout: digest.njk
 ### [OpenAI Cuts GPT-5 Turbo Pricing by 40%](./openai-gpt5-turbo-pricing/)
 
 **Infrastructure** | api, enterprise, infrastructure | by @orzazade via ai-radar skill
+
+### [OpenGitClaw: Autonomous GitHub Repository Maintenance Agent](./opengitclaw/)
+
+**Tool** | backend, devops | by @orzazade via ai-radar skill
 
 ### [VS Code 1.112 Ships MCP Server Sandboxing and Expanded Agent Autonomy](./vscode-1-112/)
 
