@@ -133,6 +133,63 @@ function parseFrontmatter(content) {
 }
 
 // ---------------------------------------------------------------------------
+// Relevance scoring
+// ---------------------------------------------------------------------------
+
+const BASE_SIGNAL_WEIGHT = {
+  "game-changer": 40,
+  notable: 25,
+  incremental: 10,
+  noise: 0,
+};
+
+function computeRelevanceScore(entry, now) {
+  if (!now) now = new Date();
+
+  // Base weight from signal level
+  const base = BASE_SIGNAL_WEIGHT[entry.signal] ?? 10;
+
+  // Freshness bonus based on entry age
+  const entryDate = entry.date ? new Date(entry.date) : null;
+  let freshness = 0;
+  if (entryDate && !isNaN(entryDate.getTime())) {
+    const ageMs = now.getTime() - entryDate.getTime();
+    const ageDays = Math.max(0, ageMs / (1000 * 60 * 60 * 24));
+    if (ageDays < 7) freshness = 20;
+    else if (ageDays < 14) freshness = 10;
+    else if (ageDays < 21) freshness = 5;
+  }
+
+  // Time decay: -2 per week after the first week
+  let decay = 0;
+  if (entryDate && !isNaN(entryDate.getTime())) {
+    const ageMs = now.getTime() - entryDate.getTime();
+    const ageWeeks = Math.max(0, Math.floor(ageMs / (1000 * 60 * 60 * 24 * 7)));
+    decay = ageWeeks > 1 ? (ageWeeks - 1) * 2 : 0;
+  }
+
+  // Supersession penalty
+  const supersessionPenalty = entry.superseded_by ? 30 : 0;
+
+  // Adoption boost (from AI curator — read from frontmatter)
+  let adoptionBoost = 0;
+  if (entry.stars && parseInt(entry.stars) > 10000) adoptionBoost = 10;
+  else if (entry.stars && parseInt(entry.stars) > 1000) adoptionBoost = 5;
+
+  const score = base + freshness - decay - supersessionPenalty + adoptionBoost;
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+function deriveLifecycle(score, existingLifecycle) {
+  // If explicitly superseded, keep that state regardless of score
+  if (existingLifecycle === "superseded") return "superseded";
+
+  if (score >= 50) return "active";
+  if (score >= 20) return "fading";
+  return "archived";
+}
+
+// ---------------------------------------------------------------------------
 // Collect entries for a given week directory
 // ---------------------------------------------------------------------------
 
@@ -255,6 +312,33 @@ function generateDigestMarkdown(entries, year, week, dateRange) {
 }
 
 // ---------------------------------------------------------------------------
+// Collect entries from multiple recent weeks (for --score-all)
+// ---------------------------------------------------------------------------
+
+function collectAllRecentEntries(weeksBack) {
+  const entries = [];
+  const now = new Date();
+
+  for (let i = 0; i < weeksBack; i++) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i * 7);
+    const { year, week } = getISOWeek(d);
+    const weekLabel = `W${String(week).padStart(2, "0")}`;
+    const weekDir = path.join(PULSE_DIR, String(year), weekLabel);
+    const weekEntries = collectWeekEntries(weekDir);
+    entries.push(...weekEntries);
+  }
+
+  // Deduplicate by title (in case of overlapping week scans)
+  const seen = new Set();
+  return entries.filter((e) => {
+    if (seen.has(e.title)) return false;
+    seen.add(e.title);
+    return true;
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Update radar.json
 // ---------------------------------------------------------------------------
 
@@ -299,9 +383,17 @@ function updateRadar(entries) {
 
   const existingByTitle = new Map(radar.entries.map((b) => [b.title, b]));
 
+  const now = new Date();
+
   for (const entry of entries) {
     const quadrant = entry.radar_quadrant || categoryToQuadrant(entry.category);
     const ring = entry.radar_ring || signalToRing(entry.signal);
+
+    // Compute relevance score (use frontmatter value if set by AI curator, else compute)
+    const score = entry.relevance_score != null
+      ? parseInt(entry.relevance_score)
+      : computeRelevanceScore(entry, now);
+    const lifecycle = entry.lifecycle || deriveLifecycle(score, entry.lifecycle);
 
     // Build URL path from file path
     const slug = entry._file
@@ -315,6 +407,9 @@ function updateRadar(entries) {
       ring: ring,
       signal: entry.signal,
       url: url,
+      date: entry.date || null,
+      relevance_score: score,
+      lifecycle: lifecycle,
     };
 
     if (existingByTitle.has(entry.title)) {
@@ -325,10 +420,11 @@ function updateRadar(entries) {
     }
   }
 
-  radar.entries.sort((a, b) => {
-    const ringOrder = { Adopt: 0, Trial: 1, Assess: 2, Hold: 3 };
-    return (ringOrder[a.ring] || 9) - (ringOrder[b.ring] || 9);
-  });
+  // Filter out archived entries from the radar
+  radar.entries = radar.entries.filter((e) => e.lifecycle !== "archived");
+
+  // Sort by relevance_score DESC (highest relevance first)
+  radar.entries.sort((a, b) => (b.relevance_score || 0) - (a.relevance_score || 0));
 
   fs.mkdirSync(path.dirname(RADAR_PATH), { recursive: true });
   fs.writeFileSync(RADAR_PATH, JSON.stringify(radar, null, 2) + "\n");
@@ -419,6 +515,8 @@ function updateContributors() {
 // ---------------------------------------------------------------------------
 
 function main() {
+  const scoreAll = process.argv.includes("--score-all");
+
   let targetYear, targetWeek;
   const weekArg = process.argv.indexOf("--week");
   if (weekArg !== -1 && process.argv[weekArg + 1]) {
@@ -439,6 +537,17 @@ function main() {
 
   const weekLabel = `W${String(targetWeek).padStart(2, "0")}`;
   const weekDir = path.join(PULSE_DIR, String(targetYear), weekLabel);
+
+  // --score-all: scan last 8 weeks and recompute all relevance scores
+  if (scoreAll) {
+    console.log("Scoring all entries from the last 8 weeks...");
+    const allEntries = collectAllRecentEntries(8);
+    console.log(`Found ${allEntries.length} entries across recent weeks`);
+    updateRadar(allEntries);
+    updateContributors();
+    console.log("Done (score-all).");
+    return;
+  }
 
   console.log(`Generating digest for ${targetYear}-${weekLabel}`);
   console.log(`Looking in: ${weekDir}`);
@@ -470,6 +579,11 @@ function main() {
   updateContributors();
 
   console.log("Done.");
+}
+
+// Export for testing
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { computeRelevanceScore, deriveLifecycle };
 }
 
 main();

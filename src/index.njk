@@ -34,44 +34,30 @@ title: ""
   </div>
 </section>
 
+{# What's Hot — top 5 by relevance score #}
+{% if collections.hot.length %}
+<section class="whats-hot">
+  <h2>What's Hot Right Now</h2>
+  <div class="hot-grid">
+    {% for entry in collections.hot %}
+      <a href="{{ entry.url }}" class="hot-card">
+        <span class="hot-signal signal-badge signal-{{ entry.data.signal }}">{{ entry.data.signal }}</span>
+        <span class="hot-title">{{ entry.data.title }}</span>
+        <span class="hot-meta">{{ entry.data.category }} · {{ entry.date | dateReadable }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section class="digest">
-  <h2>Latest Entries</h2>
+  <h2>All Entries</h2>
+  <p class="digest-subtitle">Sorted by relevance — most important first</p>
 
-  {# Game Changers first #}
-  {% set gcEntries = collections.pulse | filterBySignal("game-changer") %}
-  {% if gcEntries.length %}
-    <h3><span class="signal-badge signal-game-changer">Game Changer</span></h3>
-    {% for entry in gcEntries %}
-      {% include "partials/entry-card.njk" %}
-    {% endfor %}
-  {% endif %}
-
-  {# Notable #}
-  {% set notableEntries = collections.pulse | filterBySignal("notable") %}
-  {% if notableEntries.length %}
-    <h3><span class="signal-badge signal-notable">Notable</span></h3>
-    {% for entry in notableEntries %}
-      {% include "partials/entry-card.njk" %}
-    {% endfor %}
-  {% endif %}
-
-  {# Incremental #}
-  {% set incEntries = collections.pulse | filterBySignal("incremental") %}
-  {% if incEntries.length %}
-    <h3><span class="signal-badge signal-incremental">Incremental</span></h3>
-    {% for entry in incEntries %}
-      {% include "partials/entry-card.njk" %}
-    {% endfor %}
-  {% endif %}
-
-  {# Noise #}
-  {% set noiseEntries = collections.pulse | filterBySignal("noise") %}
-  {% if noiseEntries.length %}
-    <h3><span class="signal-badge signal-noise">Noise</span></h3>
-    {% for entry in noiseEntries %}
-      {% include "partials/entry-card.njk" %}
-    {% endfor %}
-  {% endif %}
+  {# Relevance-sorted listing (no longer grouped by signal) #}
+  {% for entry in collections.pulse %}
+    {% include "partials/entry-card.njk" %}
+  {% endfor %}
 
   {% if not collections.pulse.length %}
     <p class="empty-state">No entries yet. Run <code>/ai-radar contribute</code> to add the first one!</p>
@@ -167,6 +153,61 @@ title: ""
     margin: 1.5rem 0 1rem;
   }
 
+  .whats-hot {
+    margin: 2rem 0;
+  }
+
+  .whats-hot h2 {
+    margin-bottom: 1rem;
+  }
+
+  .hot-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hot-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s;
+  }
+
+  .hot-card:hover {
+    border-color: var(--signal-notable);
+  }
+
+  .hot-signal {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+  }
+
+  .hot-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .hot-meta {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .digest-subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+  }
+
   .empty-state {
     text-align: center;
     color: var(--text-muted);
@@ -178,5 +219,7 @@ title: ""
   @media (max-width: 640px) {
     .hero-title { font-size: 1.75rem; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .hot-card { flex-wrap: wrap; }
+    .hot-meta { width: 100%; margin-left: calc(0.75rem + 4rem); }
   }
 </style>

@@ -154,46 +154,89 @@
     tooltip.style.cssText = "position:fixed;padding:8px 12px;background:var(--bg-secondary,#111827);border:1px solid var(--border,#1f2937);border-radius:6px;font-size:13px;color:var(--text,#e5e7eb);pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:100;max-width:250px;font-family:'Inter',sans-serif;box-shadow:0 4px 12px rgba(0,0,0,0.3)";
     document.body.appendChild(tooltip);
 
-    entries.forEach((entry, i) => {
-      const qIdx = CONFIG.quadrants.indexOf(entry.quadrant);
-      const rIdx = CONFIG.rings.indexOf(entry.ring);
+    // Add pulse animation for new entries
+    const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
+    style.textContent = [
+      "@keyframes radar-pulse {",
+      "  0%, 100% { opacity: 1; }",
+      "  50% { opacity: 0.5; }",
+      "}",
+      ".blip-new { animation: radar-pulse 2s ease-in-out infinite; }"
+    ].join("\n");
+    svg.appendChild(style);
+
+    var nowMs = Date.now();
+    var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+    entries.forEach(function (entry, i) {
+      var qIdx = CONFIG.quadrants.indexOf(entry.quadrant);
+      var rIdx = CONFIG.rings.indexOf(entry.ring);
       if (qIdx === -1 || rIdx === -1) return;
 
-      const pos = placeBlip(entry, qIdx, rIdx, i);
-      const color = CONFIG.blipColors[entry.signal] || "#6b7280";
+      var pos = placeBlip(entry, qIdx, rIdx, i);
+      var color = CONFIG.blipColors[entry.signal] || "#6b7280";
 
-      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      // Relevance-based opacity (min 0.25 so fading entries are still visible)
+      var score = typeof entry.relevance_score === "number" ? entry.relevance_score : 50;
+      var blipOpacity = Math.max(0.25, score / 100);
+
+      // Game-changers get a larger radius
+      var baseRadius = entry.signal === "game-changer" ? 9 : 7;
+      var hoverRadius = entry.signal === "game-changer" ? 12 : 10;
+
+      // Check if entry is new (< 7 days old)
+      var isNew = entry.date && (nowMs - new Date(entry.date).getTime()) < SEVEN_DAYS;
+
+      var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
       g.style.cursor = entry.url ? "pointer" : "default";
+      g.style.opacity = blipOpacity;
+      if (isNew) g.classList.add("blip-new");
 
-      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
       circle.setAttribute("cx", pos.x);
       circle.setAttribute("cy", pos.y);
-      circle.setAttribute("r", 7);
+      circle.setAttribute("r", baseRadius);
       circle.setAttribute("fill", color);
       circle.setAttribute("stroke", "var(--bg, #0a0f1a)");
       circle.setAttribute("stroke-width", "2");
       g.appendChild(circle);
 
-      g.addEventListener("mouseenter", (e) => {
-        circle.setAttribute("r", 10);
-        tooltip.innerHTML = `<strong>${entry.title}</strong><br><span style="color:${color}">${entry.signal}</span> · ${entry.ring}`;
+      // Build tooltip content safely using DOM methods
+      var lifecycleLabel = entry.lifecycle ? " \u00b7 " + entry.lifecycle : "";
+      var scoreLabel = typeof entry.relevance_score === "number" ? " \u00b7 score: " + entry.relevance_score : "";
+
+      g.addEventListener("mouseenter", function (e) {
+        circle.setAttribute("r", hoverRadius);
+        g.style.opacity = "1";
+        // Safe DOM construction (no innerHTML with untrusted data)
+        tooltip.textContent = "";
+        var strong = document.createElement("strong");
+        strong.textContent = entry.title;
+        tooltip.appendChild(strong);
+        tooltip.appendChild(document.createElement("br"));
+        var info = document.createElement("span");
+        info.style.color = color;
+        info.textContent = entry.signal;
+        tooltip.appendChild(info);
+        tooltip.appendChild(document.createTextNode(" \u00b7 " + entry.ring + lifecycleLabel + scoreLabel));
         tooltip.style.opacity = "1";
         tooltip.style.left = e.clientX + 12 + "px";
         tooltip.style.top = e.clientY - 10 + "px";
       });
 
-      g.addEventListener("mousemove", (e) => {
+      g.addEventListener("mousemove", function (e) {
         tooltip.style.left = e.clientX + 12 + "px";
         tooltip.style.top = e.clientY - 10 + "px";
       });
 
-      g.addEventListener("mouseleave", () => {
-        circle.setAttribute("r", 7);
+      g.addEventListener("mouseleave", function () {
+        circle.setAttribute("r", baseRadius);
+        g.style.opacity = blipOpacity;
         tooltip.style.opacity = "0";
       });
 
       if (entry.url) {
-        g.addEventListener("click", () => window.location.href = entry.url);
+        g.addEventListener("click", function () { window.location.href = entry.url; });
       }
 
       svg.appendChild(g);
