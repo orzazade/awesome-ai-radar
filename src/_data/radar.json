@@ -93,6 +93,26 @@
       "lifecycle": "fading"
     },
     {
+      "title": "Cloudflare Workers AI Enters the Frontier Model Game with Kimi K2.5",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/kimi-k25-cloudflare-workers/",
+      "date": "2026-03-19",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Xiaomi MiMo-V2-Pro Revealed as Mystery Model Hunter Alpha After Topping OpenRouter Charts",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/xiaomi-mimo-v2-pro/",
+      "date": "2026-03-18",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
       "title": "Alibaba's Qwen 3.5 9B Outperforms OpenAI's 120B on Graduate-Level Reasoning",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -183,6 +203,16 @@
       "lifecycle": "fading"
     },
     {
+      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/",
+      "date": "2026-03-10",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
       "title": "GLM-5: First Frontier Model Trained Entirely on Non-NVIDIA Hardware",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -239,6 +269,26 @@
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/opengitclaw/",
       "date": "2026-03-20",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Publishes Largest Qualitative AI User Study: 81,000 Participants",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-81k-interviews/",
+      "date": "2026-03-18",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Gemini API Adds Built-in Tool and Function Calling Combination for Gemini 3",
+      "quadrant": "Frameworks",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/gemini-api-tool-combination/",
+      "date": "2026-03-18",
       "relevance_score": 30,
       "lifecycle": "fading"
     },
