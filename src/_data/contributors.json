@@ -1,11 +1,11 @@
 [
   {
     "username": "@orzazade via ai-radar skill",
-    "entries": 40,
+    "entries": 45,
     "signals": {
-      "incremental": 12,
+      "incremental": 14,
       "noise": 1,
-      "notable": 24,
+      "notable": 27,
       "game-changer": 3
     },
     "first_contribution": "2026-03-18"

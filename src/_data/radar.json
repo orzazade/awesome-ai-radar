@@ -181,6 +181,27 @@
       "url": "/awesome-ai-radar/pulse/nvidia-agent-toolkit-openshell/"
     },
     {
+      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/"
+    },
+    {
+      "title": "Cloudflare Workers AI Enters the Frontier Model Game with Kimi K2.5",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/kimi-k25-cloudflare-workers/"
+    },
+    {
+      "title": "Xiaomi MiMo-V2-Pro Revealed as Mystery Model Hunter Alpha After Topping OpenRouter Charts",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/xiaomi-mimo-v2-pro/"
+    },
+    {
       "title": "GitHub Copilot Agent Mode Exits Preview",
       "quadrant": "Tools",
       "ring": "Assess",
@@ -263,6 +284,20 @@
       "ring": "Assess",
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/opengitclaw/"
+    },
+    {
+      "title": "Anthropic Publishes Largest Qualitative AI User Study: 81,000 Participants",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-81k-interviews/"
+    },
+    {
+      "title": "Gemini API Adds Built-in Tool and Function Calling Combination for Gemini 3",
+      "quadrant": "Frameworks",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/gemini-api-tool-combination/"
     },
     {
       "title": "AI Search Engines Are Not Replacing Google (Yet)",
