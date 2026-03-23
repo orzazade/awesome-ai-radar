@@ -4,6 +4,7 @@ week: "2026-W12"
 date: "2026-03-22"
 entries: 40
 layout: digest.njk
+permalink: "/pulse/2026-W12/digest/"
 ---
 
 # Weekly Digest — 2026 W12

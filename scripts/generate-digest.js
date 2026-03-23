@@ -242,6 +242,7 @@ function generateDigestMarkdown(entries, year, week, dateRange) {
     `date: "${formatDate(dateRange.end)}"`,
     `entries: ${entries.length}`,
     "layout: digest.njk",
+    `permalink: "/pulse/${year}-${weekLabel}/digest/"`,
     "---",
     "",
     `# Weekly Digest — ${year} ${weekLabel}`,
