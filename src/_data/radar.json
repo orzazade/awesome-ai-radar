@@ -13,319 +13,424 @@
   ],
   "entries": [
     {
-      "title": "Anthropic Sues Pentagon After Refusing Mass Surveillance and Autonomous Weapons Use",
-      "quadrant": "Paradigms",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/anthropic-pentagon-lawsuit/"
-    },
-    {
-      "title": "DeerFlow 2.0: ByteDance's Open-Source SuperAgent Harness",
-      "quadrant": "Frameworks",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/bytedance-deerflow-2/"
-    },
-    {
-      "title": "Gemini 3.1 Pro Doubles Reasoning with 77.1% ARC-AGI-2",
+      "title": "Claude Opus 4.6 Ships with 1M Token Context",
       "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/gemini-3-1-pro/"
-    },
-    {
-      "title": "Hindsight: MCP-Native Agent Memory Scoring 91% on LongMemEval",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/hindsight-agent-memory/"
-    },
-    {
-      "title": "LangChain Releases v1.0 After Two Years of Breaking Changes",
-      "quadrant": "Frameworks",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/langchain-v1/"
+      "ring": "Adopt",
+      "signal": "game-changer",
+      "url": "/awesome-ai-radar/pulse/claude-opus-4-6/",
+      "date": "2026-03-18",
+      "relevance_score": 60,
+      "lifecycle": "active"
     },
     {
       "title": "MCP Server Ecosystem Crosses 10,000 Published Servers",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/mcp-servers-growth/"
-    },
-    {
-      "title": "NVIDIA Nemotron 3 Super: Hybrid Mamba-Transformer MoE for Agentic AI",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/nvidia-nemotron-3-super/"
-    },
-    {
-      "title": "Perplexity Personal Computer: Always-On AI Agent with Local File Access",
-      "quadrant": "Paradigms",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/perplexity-personal-computer/"
+      "url": "/awesome-ai-radar/pulse/mcp-servers-growth/",
+      "date": "2026-03-17",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Claude Code Ships 16 Releases in March: Voice Mode, /loop, 128k Output",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/claude-code-march-updates/"
+      "url": "/awesome-ai-radar/pulse/claude-code-march-updates/",
+      "date": "2026-03-17",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "OpenAI Releases GPT-5.4 Mini and Nano for High-Volume Workloads",
       "quadrant": "Models",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/gpt-5-4-mini-nano/"
-    },
-    {
-      "title": "xAI Launches Grok 4.20 with Built-In Multi-Agent Debate System",
-      "quadrant": "Paradigms",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/grok-4-20-multi-agent/"
-    },
-    {
-      "title": "Karpathy's autoresearch Hits 23k Stars in 3 Days: AI Agents Running ML Research",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/karpathy-autoresearch/"
-    },
-    {
-      "title": "Lightricks Ships LTX 2.3: Open-Source 4K Video with Synchronized Audio",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/ltx-2-3-video/"
-    },
-    {
-      "title": "Mistral Small 4 Unifies Instruct, Reasoning, and Multimodal in One Open-Source MoE",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/mistral-small-4/"
-    },
-    {
-      "title": "Vercel AI SDK 6 Adds Agents, Tool Approval, and Full MCP Support",
-      "quadrant": "Frameworks",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/vercel-ai-sdk-6/"
-    },
-    {
-      "title": "VS Code 1.111 Debuts Weekly Releases, Autopilot Mode, and Agent Permissions",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/vscode-1-111-autopilot/"
-    },
-    {
-      "title": "Meta Reveals Four MTIA Chip Generations by 2027 for AI Inference at Scale",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/meta-mtia-chips/"
+      "url": "/awesome-ai-radar/pulse/gpt-5-4-mini-nano/",
+      "date": "2026-03-17",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Mistral Launches Forge: Enterprise Custom Model Training Platform",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/mistral-forge/"
-    },
-    {
-      "title": "obra/superpowers: Agentic Skills Framework Reaches 92k Stars",
-      "quadrant": "Frameworks",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/obra-superpowers/"
+      "url": "/awesome-ai-radar/pulse/mistral-forge/",
+      "date": "2026-03-17",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "White House Unveils Six-Point National AI Legislative Framework",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/us-ai-legislative-framework/"
-    },
-    {
-      "title": "Anthropic Launches Multi-Agent Code Review for Claude Code",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/anthropic-code-review/"
+      "url": "/awesome-ai-radar/pulse/us-ai-legislative-framework/",
+      "date": "2026-03-20",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Claude Cowork Dispatch: Persistent Agent Threads from Phone to Desktop",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/claude-cowork-dispatch/"
+      "url": "/awesome-ai-radar/pulse/claude-cowork-dispatch/",
+      "date": "2026-03-17",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Google Stitch Introduces Vibe Design: AI-Native UI Canvas with Voice Interaction",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/google-stitch-vibe-design/"
-    },
-    {
-      "title": "NVIDIA Launches Agent Toolkit and OpenShell for Enterprise AI Agents",
-      "quadrant": "Tools",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/nvidia-agent-toolkit-openshell/"
-    },
-    {
-      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/"
+      "url": "/awesome-ai-radar/pulse/google-stitch-vibe-design/",
+      "date": "2026-03-18",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Cloudflare Workers AI Enters the Frontier Model Game with Kimi K2.5",
       "quadrant": "Tools",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/kimi-k25-cloudflare-workers/"
+      "url": "/awesome-ai-radar/pulse/kimi-k25-cloudflare-workers/",
+      "date": "2026-03-19",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Xiaomi MiMo-V2-Pro Revealed as Mystery Model Hunter Alpha After Topping OpenRouter Charts",
       "quadrant": "Models",
       "ring": "Trial",
       "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/xiaomi-mimo-v2-pro/"
-    },
-    {
-      "title": "GitHub Copilot Agent Mode Exits Preview",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/github-copilot-agent-mode/"
-    },
-    {
-      "title": "GPT-5.4 Ships in Three Variants with 1.05M Context",
-      "quadrant": "Models",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/gpt-5-4-release/"
-    },
-    {
-      "title": "OpenAI Cuts GPT-5 Turbo Pricing by 40%",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/openai-gpt5-turbo-pricing/"
-    },
-    {
-      "title": "Cursor Adds JetBrains IDE Support",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/cursor-jetbrains/"
-    },
-    {
-      "title": "MCP 2026 Roadmap: Horizontal Scaling, Enterprise Auth, and .well-known Discovery",
-      "quadrant": "Paradigms",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/mcp-2026-roadmap/"
-    },
-    {
-      "title": "Anthropic Invests $100M in Claude Partner Network for Enterprise Adoption",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/anthropic-partner-network/"
-    },
-    {
-      "title": "EU Council Agrees to Streamline AI Act with Extended Timelines and SME Relief",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/eu-council-ai-act-streamlining/"
-    },
-    {
-      "title": "VS Code 1.112 Ships MCP Server Sandboxing and Expanded Agent Autonomy",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/vscode-1-112/"
-    },
-    {
-      "title": "Crius: Autonomous Code Improvement Engine with Self-Improving Prompts",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/crius-autonomous-code-agent/"
-    },
-    {
-      "title": "Adobe Firefly Custom Models Enter Public Beta",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/adobe-firefly-custom-models/"
-    },
-    {
-      "title": "Anthropic Launches The Anthropic Institute for AI Safety and Societal Impact Research",
-      "quadrant": "Paradigms",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/anthropic-institute/"
-    },
-    {
-      "title": "OpenGitClaw: Autonomous GitHub Repository Maintenance Agent",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/opengitclaw/"
-    },
-    {
-      "title": "Anthropic Publishes Largest Qualitative AI User Study: 81,000 Participants",
-      "quadrant": "Paradigms",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/anthropic-81k-interviews/"
-    },
-    {
-      "title": "Gemini API Adds Built-in Tool and Function Calling Combination for Gemini 3",
-      "quadrant": "Frameworks",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/gemini-api-tool-combination/"
-    },
-    {
-      "title": "AI Search Engines Are Not Replacing Google (Yet)",
-      "quadrant": "Paradigms",
-      "ring": "Hold",
-      "signal": "noise",
-      "url": "/awesome-ai-radar/pulse/ai-search-engines-overhyped/"
-    },
-    {
-      "title": "Claude Opus 4.6 Ships with 1M Token Context",
-      "quadrant": "Models",
-      "ring": "Adopt",
-      "signal": "game-changer",
-      "url": "/awesome-ai-radar/pulse/claude-opus-4-6/"
-    },
-    {
-      "title": "GLM-5: First Frontier Model Trained Entirely on Non-NVIDIA Hardware",
-      "quadrant": "Models",
-      "ring": "Adopt",
-      "signal": "game-changer",
-      "url": "/awesome-ai-radar/pulse/glm-5-frontier-open-source/"
+      "url": "/awesome-ai-radar/pulse/xiaomi-mimo-v2-pro/",
+      "date": "2026-03-18",
+      "relevance_score": 45,
+      "lifecycle": "fading"
     },
     {
       "title": "Alibaba's Qwen 3.5 9B Outperforms OpenAI's 120B on Graduate-Level Reasoning",
       "quadrant": "Models",
       "ring": "Adopt",
       "signal": "game-changer",
-      "url": "/awesome-ai-radar/pulse/qwen-3-5-small-series/"
+      "url": "/awesome-ai-radar/pulse/qwen-3-5-small-series/",
+      "date": "2026-03-02",
+      "relevance_score": 36,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Hindsight: MCP-Native Agent Memory Scoring 91% on LongMemEval",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/hindsight-agent-memory/",
+      "date": "2026-03-15",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "LangChain Releases v1.0 After Two Years of Breaking Changes",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/langchain-v1/",
+      "date": "2026-03-16",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "NVIDIA Nemotron 3 Super: Hybrid Mamba-Transformer MoE for Agentic AI",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/nvidia-nemotron-3-super/",
+      "date": "2026-03-11",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Perplexity Personal Computer: Always-On AI Agent with Local File Access",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/perplexity-personal-computer/",
+      "date": "2026-03-11",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Mistral Small 4 Unifies Instruct, Reasoning, and Multimodal in One Open-Source MoE",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/mistral-small-4/",
+      "date": "2026-03-16",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Meta Reveals Four MTIA Chip Generations by 2027 for AI Inference at Scale",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/meta-mtia-chips/",
+      "date": "2026-03-11",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "obra/superpowers: Agentic Skills Framework Reaches 92k Stars",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/obra-superpowers/",
+      "date": "2026-03-16",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "NVIDIA Launches Agent Toolkit and OpenShell for Enterprise AI Agents",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/nvidia-agent-toolkit-openshell/",
+      "date": "2026-03-16",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/",
+      "date": "2026-03-10",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "GLM-5: First Frontier Model Trained Entirely on Non-NVIDIA Hardware",
+      "quadrant": "Models",
+      "ring": "Adopt",
+      "signal": "game-changer",
+      "url": "/awesome-ai-radar/pulse/glm-5-frontier-open-source/",
+      "date": "2026-02-11",
+      "relevance_score": 32,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "GitHub Copilot Agent Mode Exits Preview",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/github-copilot-agent-mode/",
+      "date": "2026-03-17",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "VS Code 1.112 Ships MCP Server Sandboxing and Expanded Agent Autonomy",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/vscode-1-112/",
+      "date": "2026-03-18",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Crius: Autonomous Code Improvement Engine with Self-Improving Prompts",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/crius-autonomous-code-agent/",
+      "date": "2026-03-20",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Adobe Firefly Custom Models Enter Public Beta",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/adobe-firefly-custom-models/",
+      "date": "2026-03-19",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "OpenGitClaw: Autonomous GitHub Repository Maintenance Agent",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/opengitclaw/",
+      "date": "2026-03-20",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Publishes Largest Qualitative AI User Study: 81,000 Participants",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-81k-interviews/",
+      "date": "2026-03-18",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Gemini API Adds Built-in Tool and Function Calling Combination for Gemini 3",
+      "quadrant": "Frameworks",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/gemini-api-tool-combination/",
+      "date": "2026-03-18",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Sues Pentagon After Refusing Mass Surveillance and Autonomous Weapons Use",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-pentagon-lawsuit/",
+      "date": "2026-03-09",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "xAI Launches Grok 4.20 with Built-In Multi-Agent Debate System",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/grok-4-20-multi-agent/",
+      "date": "2026-03-09",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Karpathy's autoresearch Hits 23k Stars in 3 Days: AI Agents Running ML Research",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/karpathy-autoresearch/",
+      "date": "2026-03-06",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Lightricks Ships LTX 2.3: Open-Source 4K Video with Synchronized Audio",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/ltx-2-3-video/",
+      "date": "2026-03-06",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "VS Code 1.111 Debuts Weekly Releases, Autopilot Mode, and Agent Permissions",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/vscode-1-111-autopilot/",
+      "date": "2026-03-09",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Launches Multi-Agent Code Review for Claude Code",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-code-review/",
+      "date": "2026-03-09",
+      "relevance_score": 28,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "DeerFlow 2.0: ByteDance's Open-Source SuperAgent Harness",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/bytedance-deerflow-2/",
+      "date": "2026-02-28",
+      "relevance_score": 21,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Vercel AI SDK 6 Adds Agents, Tool Approval, and Full MCP Support",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/vercel-ai-sdk-6/",
+      "date": "2026-03-01",
+      "relevance_score": 21,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "OpenAI Cuts GPT-5 Turbo Pricing by 40%",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/openai-gpt5-turbo-pricing/",
+      "date": "2026-03-15",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "MCP 2026 Roadmap: Horizontal Scaling, Enterprise Auth, and .well-known Discovery",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/mcp-2026-roadmap/",
+      "date": "2026-03-10",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Invests $100M in Claude Partner Network for Enterprise Adoption",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-partner-network/",
+      "date": "2026-03-12",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "EU Council Agrees to Streamline AI Act with Extended Timelines and SME Relief",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/eu-council-ai-act-streamlining/",
+      "date": "2026-03-13",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Launches The Anthropic Institute for AI Safety and Societal Impact Research",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-institute/",
+      "date": "2026-03-11",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "AI Search Engines Are Not Replacing Google (Yet)",
+      "quadrant": "Paradigms",
+      "ring": "Hold",
+      "signal": "noise",
+      "url": "/awesome-ai-radar/pulse/ai-search-engines-overhyped/",
+      "date": "2026-03-18",
+      "relevance_score": 20,
+      "lifecycle": "fading"
     }
   ],
   "blips": []

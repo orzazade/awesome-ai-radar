@@ -26,11 +26,30 @@ module.exports = function (eleventyConfig) {
     return collection.filter((item) => item.data && item.data.signal === signal);
   });
 
-  // Custom collection: all pulse entries sorted by date descending
+  // Custom collection: all pulse entries sorted by relevance_score DESC, then date DESC
   eleventyConfig.addCollection("pulse", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/pulse/**/*.md")
-      .sort((a, b) => b.date - a.date);
+      .filter((item) => item.data.lifecycle !== "archived")
+      .sort((a, b) => {
+        const scoreA = a.data.relevance_score || 0;
+        const scoreB = b.data.relevance_score || 0;
+        if (scoreB !== scoreA) return scoreB - scoreA;
+        return b.date - a.date;
+      });
+  });
+
+  // Custom collection: top 5 hottest entries by relevance_score
+  eleventyConfig.addCollection("hot", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/pulse/**/*.md")
+      .filter((item) => item.data.lifecycle !== "archived")
+      .sort((a, b) => {
+        const scoreA = a.data.relevance_score || 0;
+        const scoreB = b.data.relevance_score || 0;
+        return scoreB - scoreA;
+      })
+      .slice(0, 5);
   });
 
   // Custom collection: noise entries (signal === "noise")

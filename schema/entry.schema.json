@@ -107,6 +107,26 @@
       "type": "string",
       "format": "uri",
       "description": "GitHub repo URL (for rising star entries, distinct from source)"
+    },
+    "relevance_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "AI-computed relevance score (0-100). Updated by /ai-radar curate and generate-digest.js --score-all."
+    },
+    "last_evaluated": {
+      "type": "string",
+      "format": "date",
+      "description": "Date this entry was last evaluated by the AI curator."
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": ["active", "fading", "archived", "superseded"],
+      "description": "Current lifecycle state. active (score>=50), fading (20-49), archived (<20), superseded (replaced)."
+    },
+    "superseded_by": {
+      "type": "string",
+      "description": "Title of the entry that supersedes this one."
     }
   },
   "additionalProperties": false
