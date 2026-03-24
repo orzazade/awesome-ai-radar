@@ -203,16 +203,6 @@
       "lifecycle": "fading"
     },
     {
-      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/",
-      "date": "2026-03-10",
-      "relevance_score": 35,
-      "lifecycle": "fading"
-    },
-    {
       "title": "GLM-5: First Frontier Model Trained Entirely on Non-NVIDIA Hardware",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -290,6 +280,16 @@
       "url": "/awesome-ai-radar/pulse/gemini-api-tool-combination/",
       "date": "2026-03-18",
       "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-embedding-2-preview/",
+      "date": "2026-03-10",
+      "relevance_score": 28,
       "lifecycle": "fading"
     },
     {
