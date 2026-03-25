@@ -103,6 +103,36 @@
       "lifecycle": "fading"
     },
     {
+      "title": "Dapr Agents v1.0 Reaches General Availability for Production AI Agent Deployments",
+      "quadrant": "Frameworks",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/dapr-agents-v1-ga/",
+      "date": "2026-03-23",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "GPT-5.2-Codex: OpenAI's Most Advanced Coding Model with Long-Horizon Agentic Reasoning",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gpt-5-2-codex/",
+      "date": "2026-03-22",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "OpenAI Acquires Astral: Ruff, uv, and ty Join the Codex Ecosystem",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/openai-acquires-astral/",
+      "date": "2026-03-19",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
       "title": "Alibaba's Qwen 3.5 9B Outperforms OpenAI's 120B on Graduate-Level Reasoning",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -259,6 +289,16 @@
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/opengitclaw/",
       "date": "2026-03-20",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "ChatGPT Launches Library: Persistent File Storage Across Conversations",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/chatgpt-library/",
+      "date": "2026-03-23",
       "relevance_score": 30,
       "lifecycle": "fading"
     },
@@ -428,6 +468,16 @@
       "ring": "Hold",
       "signal": "noise",
       "url": "/awesome-ai-radar/pulse/ai-search-engines-overhyped/",
+      "date": "2026-03-18",
+      "relevance_score": 20,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Models API Now Returns Capability Fields for Programmatic Discovery",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/anthropic-models-api-capabilities/",
       "date": "2026-03-18",
       "relevance_score": 20,
       "lifecycle": "fading"
