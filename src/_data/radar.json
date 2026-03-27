@@ -113,6 +113,36 @@
       "lifecycle": "fading"
     },
     {
+      "title": "Apple iOS 27 Opens Siri to Third-Party AI Chatbots via Extensions",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/apple-ios27-siri-extensions/",
+      "date": "2026-03-26",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Claude Cowork Gets Computer Use and Cross-Device Dispatch",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/claude-cowork-computer-use-dispatch/",
+      "date": "2026-03-24",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "OpenAI Launches Safety Bug Bounty for AI Agent Vulnerabilities",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/openai-safety-bug-bounty/",
+      "date": "2026-03-25",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
       "title": "Alibaba's Qwen 3.5 9B Outperforms OpenAI's 120B on Graduate-Level Reasoning",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -299,6 +329,36 @@
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/chatgpt-library/",
       "date": "2026-03-23",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Google Lyria 3 Pro: 3-Minute Music Generation with Structural Awareness",
+      "quadrant": "Models",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/google-lyria-3-pro/",
+      "date": "2026-03-25",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Meta TRIBE v2: Foundation Model Predicting Human Brain Responses to Sights and Sounds",
+      "quadrant": "Paradigms",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/meta-tribe-v2/",
+      "date": "2026-03-26",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "ProofShot: Visual Verification CLI for AI Coding Agents",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/proofshot-visual-verification/",
+      "date": "2026-03-25",
       "relevance_score": 30,
       "lifecycle": "fading"
     },
