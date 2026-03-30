@@ -133,6 +133,56 @@
       "lifecycle": "fading"
     },
     {
+      "title": "Anthropic Claude Mythos Leak Reveals Step-Change Model Above Opus",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-claude-mythos-leak/",
+      "date": "2026-03-26",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Gemini 3.1 Flash Live: Real-Time Audio-to-Audio Model for Voice Agents",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-3-1-flash-live/",
+      "date": "2026-03-26",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Intercom Fin Apex 1.0: Domain-Specific Model Outperforms GPT-5.4 and Opus on Customer Service",
+      "quadrant": "Paradigms",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/intercom-fin-apex-vertical-model/",
+      "date": "2026-03-28",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Mistral Voxtral TTS: First Open-Weight Frontier Text-to-Speech Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/mistral-voxtral-tts/",
+      "date": "2026-03-26",
+      "relevance_score": 45,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Shannon: Autonomous AI Pentester Explodes to 35K GitHub Stars",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/shannon-ai-pentester/",
+      "date": "2026-03-28",
+      "relevance_score": 40,
+      "lifecycle": "fading"
+    },
+    {
       "title": "Alibaba's Qwen 3.5 9B Outperforms OpenAI's 120B on Graduate-Level Reasoning",
       "quadrant": "Models",
       "ring": "Adopt",
@@ -359,6 +409,26 @@
       "signal": "incremental",
       "url": "/awesome-ai-radar/pulse/proofshot-visual-verification/",
       "date": "2026-03-25",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "US States Rush to Regulate AI While Congress Remains Deadlocked",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/us-states-ai-regulation/",
+      "date": "2026-03-28",
+      "relevance_score": 30,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Waymo Reaches 500K Weekly Paid Rides Across 10 US Cities",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/waymo-500k-weekly-rides/",
+      "date": "2026-03-27",
       "relevance_score": 30,
       "lifecycle": "fading"
     },
