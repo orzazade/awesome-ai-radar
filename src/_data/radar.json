@@ -133,42 +133,12 @@
       "lifecycle": "fading"
     },
     {
-      "title": "Anthropic Claude Mythos Leak Reveals Step-Change Model Above Opus",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/anthropic-claude-mythos-leak/",
-      "date": "2026-03-26",
-      "relevance_score": 45,
-      "lifecycle": "fading"
-    },
-    {
-      "title": "Gemini 3.1 Flash Live: Real-Time Audio-to-Audio Model for Voice Agents",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/gemini-3-1-flash-live/",
-      "date": "2026-03-26",
-      "relevance_score": 45,
-      "lifecycle": "fading"
-    },
-    {
       "title": "Intercom Fin Apex 1.0: Domain-Specific Model Outperforms GPT-5.4 and Opus on Customer Service",
       "quadrant": "Paradigms",
       "ring": "Trial",
       "signal": "notable",
       "url": "/awesome-ai-radar/pulse/intercom-fin-apex-vertical-model/",
       "date": "2026-03-28",
-      "relevance_score": 45,
-      "lifecycle": "fading"
-    },
-    {
-      "title": "Mistral Voxtral TTS: First Open-Weight Frontier Text-to-Speech Model",
-      "quadrant": "Models",
-      "ring": "Trial",
-      "signal": "notable",
-      "url": "/awesome-ai-radar/pulse/mistral-voxtral-tts/",
-      "date": "2026-03-26",
       "relevance_score": 45,
       "lifecycle": "fading"
     },
@@ -190,6 +160,36 @@
       "url": "/awesome-ai-radar/pulse/qwen-3-5-small-series/",
       "date": "2026-03-02",
       "relevance_score": 36,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Anthropic Claude Mythos Leak Reveals Step-Change Model Above Opus",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/anthropic-claude-mythos-leak/",
+      "date": "2026-03-26",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Gemini 3.1 Flash Live: Real-Time Audio-to-Audio Model for Voice Agents",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/gemini-3-1-flash-live/",
+      "date": "2026-03-26",
+      "relevance_score": 35,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Mistral Voxtral TTS: First Open-Weight Frontier Text-to-Speech Model",
+      "quadrant": "Models",
+      "ring": "Trial",
+      "signal": "notable",
+      "url": "/awesome-ai-radar/pulse/mistral-voxtral-tts/",
+      "date": "2026-03-26",
+      "relevance_score": 35,
       "lifecycle": "fading"
     },
     {
@@ -423,16 +423,6 @@
       "lifecycle": "fading"
     },
     {
-      "title": "Waymo Reaches 500K Weekly Paid Rides Across 10 US Cities",
-      "quadrant": "Tools",
-      "ring": "Assess",
-      "signal": "incremental",
-      "url": "/awesome-ai-radar/pulse/waymo-500k-weekly-rides/",
-      "date": "2026-03-27",
-      "relevance_score": 30,
-      "lifecycle": "fading"
-    },
-    {
       "title": "Google Releases Gemini Embedding 2: First Multimodal Embedding Model",
       "quadrant": "Models",
       "ring": "Trial",
@@ -520,6 +510,16 @@
       "url": "/awesome-ai-radar/pulse/vercel-ai-sdk-6/",
       "date": "2026-03-01",
       "relevance_score": 21,
+      "lifecycle": "fading"
+    },
+    {
+      "title": "Waymo Reaches 500K Weekly Paid Rides Across 10 US Cities",
+      "quadrant": "Tools",
+      "ring": "Assess",
+      "signal": "incremental",
+      "url": "/awesome-ai-radar/pulse/waymo-500k-weekly-rides/",
+      "date": "2026-03-27",
+      "relevance_score": 20,
       "lifecycle": "fading"
     },
     {
